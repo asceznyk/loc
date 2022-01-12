@@ -1,8 +1,5 @@
 //let nums = [34, 30, 3, 5, 9]
-//9 5 34 3 30
-
 let nums = [1, 34, 3, 98, 9, 76, 45, 4, 12, 121]
-//16 134 12 101 108
 
 function highestNum(nums) {
 	let maxlen = Math.max(...nums).toString().length;	
