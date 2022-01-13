@@ -1,1 +1,1 @@
- # Solutions to problems on Codewars,	Codeforces, Codechef #
+ # Solutions to JavaScript/Python problems #
