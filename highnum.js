@@ -1,4 +1,3 @@
-//let nums = [34, 30, 3, 5, 9]
 let nums = [1, 34, 3, 98, 9, 76, 45, 4, 12, 121]
 
 function highestNum(nums) {
