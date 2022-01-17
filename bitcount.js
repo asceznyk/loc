@@ -3,5 +3,5 @@ const countBits = (n) => {
 	return c
 }
 
-console.log(countBits(91119))
+console.log(countBits(91120))
 
