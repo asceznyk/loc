@@ -78,14 +78,6 @@ const fetchOrderById = (orderid) => {
 	})
 }
 
-const actionsFill = (actions) => {
-	
-
-	return new Promise((res, rej) => {
-		res(targets)
-	})
-}
-
 async function getTargetActions () {
 	let targets = []
 	const actions = await fetchActions()
