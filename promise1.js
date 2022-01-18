@@ -5,14 +5,19 @@ const doSomething = () => {
 const confSomething = () => {
 	return new Promise((res, rej) => {
 		let status = doSomething();
-		if(status) res({"success":true})
-		else rej({"success":false})
+		if(status) res(`Success!`)	
+		else rej()
 	})
 }
 
-let p = confSomething()
+const promiseSomething = () => {
+	return new Promise((res, rej) => {
+		confSomething()
+			.catch(() => { return rej(`Error confSomething`) })
+			.then((data) => { return res(data) })
+	})
+}
 
-p
-	.then(data => console.log(data))
-	.catch(error => console.log(error))
-
+promiseSomething()
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
