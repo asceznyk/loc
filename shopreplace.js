@@ -36,7 +36,7 @@ const fetchTagsByAction = (action) => {
 	const textTags = [
 		{
 			'id':1,
-			'name':'OrderID',
+			'name':'DROP_MENU',
 			'value':''
 		}
 	]
@@ -74,7 +74,7 @@ const fetchOrderById = (orderid) => {
 	}
 
 	return new Promise((res, rej) => {
-		setTimeout(() => res(order))
+		setTimeout(() => res(order), 1000)
 	})
 }
 
@@ -83,7 +83,7 @@ async function getTargetActions () {
 	const actions = await fetchActions()
 	await Promise.all(actions.map(async (action) => {
 		if(action.type == 'TEXT' || action.type == 'EMAIL') {
-			let tags = await fetchTagsByAction(action);
+			let tags = await fetchTagsByAction(action); 
 			for (let tag of tags) {
 				if(tag.name == 'OrderID') {	
 					action.type = 'SHOP'
