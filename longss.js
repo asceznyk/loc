@@ -5,20 +5,17 @@
 // "ckilbkd" => "ckilb"
 
 const lengthOfLongestSubstring = (s) => {
-	const bestSubstring = (k) => {
+	let bss = '';
+	for(let i = 0; i < s.length; i++){
 		let ss = '';
+		let k = i;
 		while(!ss.includes(s[k]) && k < s.length) {
 			ss += s[k];
 			k++;
 		}
-		return ss;
+		if(ss.length > bss.length) bss = ss;
 	}
-	
-	let bss = '';
-	for(let i = 0; i < s.length; i++){
-		let current = bestSubstring(i);
-		if(current.length > bss.length) bss = current;
-	}
+	console.log(bss)
 	return bss.length;
 }
 
