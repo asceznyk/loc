@@ -2,7 +2,7 @@
 // "pwwkew" -> "wke"
 // "abcbacbb" -> "abc" 
 // "bbbbb" => "b"
-// "ckilb_k_d" => "ckilb"
+// "ckilbkd" => "ckilb"
 
 const lengthOfLongestSubstring = (s) => {
 	const bestSubstring = (k) => {
