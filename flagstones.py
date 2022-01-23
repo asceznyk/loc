@@ -1,5 +1,3 @@
-## least square number to cover the theatre
-
 from sys import stdin, stdout
 
 import math

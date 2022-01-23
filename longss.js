@@ -1,9 +1,3 @@
-// "aabbccabccdd" -> "abc"
-// "pwwkew" -> "wke"
-// "abcbacbb" -> "abc" 
-// "bbbbb" => "b"
-// "ckilbkd" => "ckilb"
-
 const lengthOfLongestSubstring = (s) => {
 	let bss = '';
 	for(let i = 0; i < s.length; i++){
