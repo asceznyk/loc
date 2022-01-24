@@ -1,18 +1,24 @@
-var x = 10;
-function foo(a) {
-  var b = 20;
+/*
+example to demonstrate an important use of closures: to maintain a private reference to a variable in the outer scope.
+*/
 
-  function bar(c) {
-    var d = 30;
-    return boop(x + a + b + c + d);
+function secretPassword() {
+  var password = 'xh38sk';
+  return {
+    guessPassword: function(guess) {
+      if (guess === password) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
-
-  function boop(e) {
-    return e * -1;
-  }
-
-  return bar;
 }
 
-var moar = foo(5); 
-console.log(moar(15)); 
+var passwordGame = secretPassword();
+console.log(passwordGame.guessPassword('heyisthisit?'))
+console.log(passwordGame.guessPassword('xh38sk'))
+
+/*
+This is a very powerful technique — it gives the closure function guessPassword exclusive access to the password variable, while making it impossible to access the password from the outside.
+*/
