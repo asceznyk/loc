@@ -1,15 +1,11 @@
 from sys import stdin, stdout
 
-class Edge:
-    def __init__(self, f_id, t_id, score):
-        self.f_id = f_id
-        self.t_id = t_id
-        self.score = score
-
-def graph(vertices, edges, descs):
-    graph = []
-    for e in range(edges):
-        graph.append(Edge(*descs[e]))
+def graph(descs):
+    graph = 
+    for d in descs:
+        [v, i, s] = d
+        graph[v] = {} if v not in graph else graph[v]
+        graph[v][i] = s
 
     return graph
 
@@ -25,7 +21,7 @@ def build_graphs():
         n, m = [int(x) for x in std_line().split()] 
         for i in range(m):
             descs.append([int(x) for x in std_line().split()]) 
-        graphs.append(graph(n, m, descs))
+        graphs.append(graph(descs))
         _ = std_line()
 
     return graphs
