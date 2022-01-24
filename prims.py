@@ -33,7 +33,7 @@ def build_graphs():
     return graphs
 
 def prims(graph):
-    def min_g():
+    def min_edge():
         min_r = []
         for y, row in enumerate(graph):
             min_v = 30000
@@ -45,9 +45,20 @@ def prims(graph):
         min_v1, min_v2, v = min(min_r, key=lambda t : t[2])
         return min_v1, min_v2
 
+    def min_vertex(i):
+        min_v = 30000
+        min_x = 0
+        for x, v in enumerate(graph[i]):
+            if x not in visited and v != 0 and v < min_v:
+                min_v = v
+                min_x = x
+        return min_x
+
     visited = [] ## a list of vertex indices
-    min_v1, min_v2 = min_g()
-        
+    min_v1, min_v2 = min_edge()
+    visited.append(min_v1)
+    visited.append(min_v2)
+    print(min_vertex(min_v1), min_v1, min_v2, graph)
 
 graphs = build_graphs()
 for g in graphs:    

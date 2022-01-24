@@ -1,7 +1,18 @@
-for (var index = 1; index <= 3; index++) {
-    setTimeout(function () {
-        console.log('after ' + index + ' second(s):' + index);
-    }, index * 1000);
+var x = 10;
+function foo(a) {
+  var b = 20;
+
+  function bar(c) {
+    var d = 30;
+    return boop(x + a + b + c + d);
+  }
+
+  function boop(e) {
+    return e * -1;
+  }
+
+  return bar;
 }
 
-
+var moar = foo(5); 
+console.log(moar(15)); 
