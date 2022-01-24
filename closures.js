@@ -1,5 +1,5 @@
 /*
-example to demonstrate an important use of closures: to maintain a private reference to a variable in the outer scope.
+Example to demonstrate an important use of closures: to maintain a private reference to a variable in the outer scope.
 */
 
 function secretPassword() {
