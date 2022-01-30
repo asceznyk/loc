@@ -27,7 +27,7 @@ void dfs(int v, vector<bool> &used){
     for(auto e: sl[v]){
         int u = e.first, w = e.second;
         if(!used[u] && (cur | w) == cur) {
-            cout << v << " -> " << u << " = " << w << "\n";
+            //cout << v << " -> " << u << " = " << w << "\n";
             dfs(u, used);
         }
     }
@@ -38,15 +38,15 @@ void cnt(int pw){
     int d = (ll) 1 << pw;    
     cur -= d;
 
-    cout << cur << " " << pw  << "\n";
+    //cout << cur << " " << pw  << "\n";
 
     vector<bool> used(n); 
     dfs(0, used);
 
-    for(bool b: used) {
+    /*for(bool b: used) {
         cout << b << " ";
     }
-    cout << "\n";
+    cout << "\n";*/
 
     for(bool b: used){
         if(!b) {
@@ -81,7 +81,7 @@ void solve() {
         sl[v].emplace_back(u, w);
     }
 
-    print_sl();
+    //print_sl();
 
     cur = 1;
     int bit = 0;

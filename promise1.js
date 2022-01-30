@@ -1,10 +1,6 @@
-const doSomething = () => {
-	return Math.random() < 0.5
-}
-
 const confSomething = () => {
 	return new Promise((res, rej) => {
-		let status = doSomething();
+		let status = Math.random() < 0.5;
 		if(status) res(`Success!`)	
 		else rej()
 	})
@@ -13,7 +9,7 @@ const confSomething = () => {
 const promiseSomething = () => {
 	return new Promise((res, rej) => {
 		confSomething()
-			.catch(() => { return rej(`Error confSomething`) })
+			.catch(() => { return rej(`Error!`) })
 			.then((data) => { return res(data) })
 	})
 }
