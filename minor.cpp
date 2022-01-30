@@ -1,24 +1,11 @@
 #include <bits/stdc++.h>
 
-//#define int long long
-//#define mp make_pair
-//#define x first
-//#define y second
-//#define all(a) (a).begin(), (a).end()
-//#define rall(a) (a).rbegin(), (a).rend()
-
 typedef long double ld;
 typedef long long ll;
 
 using namespace std;
 
-//mt19937 rnd(143);
-
 const int inf = 1e9;
-//const int M = 998244353;
-//const ld pi = atan2(0, -1);
-//const ld eps = 1e-4;
-
 int n, cur;
 vector<vector<pair<int, int>>> sl;
 
@@ -27,7 +14,6 @@ void dfs(int v, vector<bool> &used){
     for(auto e: sl[v]){
         int u = e.first, w = e.second;
         if(!used[u] && (cur | w) == cur) {
-            //cout << v << " -> " << u << " = " << w << "\n";
             dfs(u, used);
         }
     }
@@ -37,17 +23,8 @@ void cnt(int pw){
     if(pw < 0) return;
     int d = (ll) 1 << pw;    
     cur -= d;
-
-    //cout << cur << " " << pw  << "\n";
-
     vector<bool> used(n); 
     dfs(0, used);
-
-    /*for(bool b: used) {
-        cout << b << " ";
-    }
-    cout << "\n";*/
-
     for(bool b: used){
         if(!b) {
             cur += d;
@@ -55,18 +32,6 @@ void cnt(int pw){
         }
     }
     cnt(pw - 1);
-}
-
-void print_sl() { 
-    for(int v = 0; v < sl.size(); ++v) {
-        cout << "\n";
-        for(auto e: sl[v]) {
-            int u = e.first, w = e.second;
-            cout << u << ", " << w << "\n";
-        }
-    }
-
-    cout << "\n";
 }
 
 void solve() {
@@ -80,8 +45,6 @@ void solve() {
         sl[u].emplace_back(v, w);
         sl[v].emplace_back(u, w);
     }
-
-    //print_sl();
 
     cur = 1;
     int bit = 0;

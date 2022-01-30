@@ -1,13 +1,15 @@
 from sys import stdin, stdout
 
-inf = 1e9
-n, cur = (0, 0)
-graph = []
+def std_line(): return stdin.readline().lstrip().rstrip()
+
+inf = int(1e9)
+n, cur = None, None
+graph = None
 
 def dfs(v, visited):
     visited[v] = 1
-    for u, w in graph[v]:
-        if not visited[u] and ((cur | w) == cur):
+    for (u, w) in graph[v]:
+        if not visited[u] and (cur | w) == cur:
             dfs(u, visited)
 
 def reduce_ans(p):
@@ -15,16 +17,25 @@ def reduce_ans(p):
     if p < 0: return
     d = 1 << p
     cur -= d
-    visited = {v:0 for v in range(n)}
+    visited = [0 for v in range(n)]
     dfs(0, visited)
-    for _, v in visited.items():
+    for v in visited:
         if not v:
             cur += d
             break
     reduce_ans(p-1)
 
 def solve():
-    global cur
+    global n, cur, graph
+    n, m = [int(x) for x in std_line().split()]
+    graph = [[] for _ in range(n)]
+    for _ in range(m):
+        u, v, w = [int(x) for x in std_line().split()]
+        u -= 1
+        v -= 1
+        graph[u].append((v, w))
+        graph[v].append((u, w))
+
     cur = 1
     bit = 0
     while(cur < inf):
@@ -33,32 +44,14 @@ def solve():
     reduce_ans(bit)
     stdout.write(f"{cur} \n")
 
-def build_graph(v, e, descs):
-    c_graph = [[] for _ in range(v)]
-    for [u, v, w] in descs:
-        u -= 1
-        v -= 1
-        c_graph[u].append((v, w))
-        c_graph[v].append((u, w))
-    return c_graph    
-
 def main():
-    global n, graph
-    def std_line(): return stdin.readline().lstrip().rstrip()
-
     t = int(std_line())
     _ = std_line()
-
     stdout.write("\n")
-     
-    for _ in range(t):
-        descs = []
-        n, m = [int(x) for x in std_line().split()] 
-        for i in range(m):
-            descs.append([int(x) for x in std_line().split()]) 
-        graph = build_graph(n, m, descs)
+    for _ in range(t): 
         solve()
         _ = std_line()
+    return 0
 
 if __name__ == '__main__':
     main()
