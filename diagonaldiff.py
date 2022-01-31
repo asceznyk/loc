@@ -1,4 +1,3 @@
-
 def diagonalDiff(arr):
     ltrd, rtld = 0, 0 
     for y in range(len(arr)):
@@ -6,7 +5,6 @@ def diagonalDiff(arr):
         rtld += arr[y][(len(arr)-1) - y]
 
     return abs(ltrd  - rtld)
-
 
 arr = [
     [11, 2, 4],
@@ -16,3 +14,5 @@ arr = [
 
 diff = diagonalDiff(arr)
 print(diff)
+
+
