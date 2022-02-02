@@ -2,7 +2,7 @@ from sys import stdin, stdout
 
 def std_line(): return stdin.readline().lstrip().rstrip()
 
-inf = int(1e9)
+infinity = int(1e9)
 n, cur = None, None
 graph = None
 
@@ -35,13 +35,12 @@ def solve():
         v -= 1
         graph[u].append((v, w))
         graph[v].append((u, w))
-
     cur = 1
     bit = 0
-    while(cur < inf):
+    while(cur < infinity):
         bit += 1
         cur = cur * 2 + 1
-    reduce_ans(bit)
+    reduce_ans(bit) 
     stdout.write(f"{cur} \n")
 
 def main():
