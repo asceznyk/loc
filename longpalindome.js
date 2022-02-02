@@ -6,7 +6,7 @@ const longestPalindrome = (s) => {
 	let bss = '';
 	let c = 0;
 	for(let i = 0; i < s.length; i++) {
-		for(let j = s.length; j >= i; j--) {
+		for(let j = 0; j < s.length; j++) {
 			c++;
 			let ss = s.slice(i, j+1)
 			if(ss == ss.split('').reverse().join('') && ss.length > bss.length) {
