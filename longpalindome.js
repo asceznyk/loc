@@ -1,47 +1,33 @@
-const longestPalindrome = (s) => {
-	if(s == s.split('').reverse().join('')) {
-		return s
+const longestpalindrome = (s) => {
+	const expandfrommiddle = (ms, left, right) => {
+		if(ms == null || left > right) return '';
+
+		while(left >= 0 && right < ms.length && ms[right] == ms[left]) {
+			right++;
+			left--;
+		}
+		left++;
+		right--;
+
+		left = math.max(0, left);
+		right = math.min(right, s.length);
+
+		return s.slice(left, right+1);
 	}
 
-	let bss = '';
-	let c = 0;
-	for(let i = 0; i < s.length; i++) {
-		for(let j = 0; j < s.length; j++) {
-			c++;
-			let ss = s.slice(i, j+1)
-			if(ss == ss.split('').reverse().join('') && ss.length > bss.length) {
-				bss = ss
-			}
-		}
+	if(s == null || s.length < 1) return '';
+	
+	let smax = '';
+	for (let i = 0; i < s.length; i++) {
+		let options = [expandfrommiddle(s, i, i), expandfrommiddle(s, i, i+1)];	
+		let ls = options.map((x)=> [x, x.length]).reduce((r, a) => {
+			return a[1] > r[1] ? a : r;
+		})[0]
+		if(ls.length > smax.length) smax = ls;
 	}
 
-	/*let abpos = {};
-	s.split('').forEach((e, i) => {
-		if(!(e in abpos)) abpos[e] = [i]
-		else abpos[e].push(i)	
-	})
-
-	let pairs = {}
-	for(const e in abpos) {
-		let idxs = abpos[e];
-		for(let i = 0; i < idxs.length; i++) {
-			for(let j = idxs.length-1; j >= i; j--) {	
-				if(!(e in pairs)) pairs[e] = [[idxs[i], idxs[j]+1]]
-				else pairs[e].push([idxs[i], idxs[j]+1])
-			}
-		}
-	}*/
-
-	console.log(bss, c)
-	return bss;
+	return smax;
 }
 
-longestPalindrome("cbbdababac")
-longestPalindrome("cbbdadc")
-longestPalindrome("cbbdadbbc")
-longestPalindrome("abacab")
-longestPalindrome("aacabdkacaa")
-longestPalindrome("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth")
-longestPalindrome("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-longestPalindrome("fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg")
+
 
