@@ -1,28 +1,16 @@
 const longestPalindrome = (s) => {
-	let dp = {};
-	const isPalidrome = (ss) => {
-		if(ss in dp) return dp[ss];
+	let palintab = Array(s.length).fill(Array(s.length).fill(0));
+	let i = 0, j = 0;
+	while(i < s.length && j < s.length) {
+		i++; j++;
+		palintab[i][j] = 1;
+	}
 
-		let mid = Math.floor(ss.length/2), len = ss.length;
-		for(let i = 0; i < mid; i++) {
-			c++;
-			if(ss[i] !== ss[len-1-i]) return 0;
-		}
-
-		dp[ss] = 1;
-		return 1;
-	} 
-
-	let c = 0;
 	let bss = '';
-	for(let i = 0; i < s.length; i++) {
-		for(let j = i; j < s.length; j++) {
-			c++;
-			let ss = s.slice(i, j+1);
-			if(isPalidrome(ss) && ss.length > bss.length) {
-				bss = ss;
-			}
-		}
+	let stride = 2;
+	for(let k = 0; k < Math.floor(s.length/stride); k++) {
+		let ss = s.slice(k, k+stride);
+		console.log(ss);
 	}
 
 	console.log(bss, c)
