@@ -18,3 +18,5 @@ const convert = (s, rows) => {
 
 let s = convert("PAYPALISHIRING", 10)
 console.log(s)
+
+
