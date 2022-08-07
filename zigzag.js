@@ -16,7 +16,7 @@ const convert = (s, rows) => {
 	return zz.flat().reduce((i,r) => i+r)
 }
 
-let s = convert("PAYPALISHIRING", 10)
+let s = convert("PAYPALISHIRING", 4)
 console.log(s)
 
 
