@@ -10,7 +10,7 @@ def maxArea(height:List[int]) -> int:
         lh, rh = height[lp], height[rp]
         area = abs(rp-lp) * min(lh, rh)
         if height[lp] <= height[rp]: lp += 1
-        elif height[rp] <= height[lp]: rp -= 1
+        else: rp -= 1
         if area >= mwater: mwater = area
 
     return mwater
