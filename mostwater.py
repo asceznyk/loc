@@ -9,9 +9,9 @@ def maxArea(height:List[int]) -> int:
     while(lp < rp):
         lh, rh = height[lp], height[rp]
         area = abs(rp-lp) * min(lh, rh)
+        if area >= mwater: mwater = area
         if height[lp] <= height[rp]: lp += 1
         else: rp -= 1
-        if area >= mwater: mwater = area
 
     return mwater
 
