@@ -13,5 +13,3 @@ const isMatch = function (text, pattern) {
 
 console.log(isMatch("axxbx", "a.*b"));
 
-
-
