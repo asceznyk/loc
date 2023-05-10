@@ -1,7 +1,7 @@
 from typing import List
 
 
-def maxArea(height:List[int]) -> int:  
+def maxArea(height:List[int]) -> int:
     lp = 0
     rp = len(height)-1
     mwater = 0
