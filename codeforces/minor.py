@@ -1,16 +1,19 @@
 from sys import stdin, stdout
 
+
 def std_line(): return stdin.readline().lstrip().rstrip()
 
 infinity = int(1e9)
 n, cur = None, None
 graph = None
 
+
 def dfs(v, visited):
     visited[v] = 1
     for (u, w) in graph[v]:
         if not visited[u] and (cur | w) == cur:
             dfs(u, visited)
+
 
 def reduce_ans(p):
     global cur
@@ -24,6 +27,7 @@ def reduce_ans(p):
             cur += d
             break
     reduce_ans(p-1)
+
 
 def solve():
     global n, cur, graph
@@ -40,17 +44,19 @@ def solve():
     while(cur < infinity):
         bit += 1
         cur = cur * 2 + 1
-    reduce_ans(bit) 
+    reduce_ans(bit)
     stdout.write(f"{cur} \n")
+
 
 def main():
     t = int(std_line())
     _ = std_line()
     stdout.write("\n")
-    for _ in range(t): 
+    for _ in range(t):
         solve()
         _ = std_line()
     return 0
+
 
 if __name__ == '__main__':
     main()
