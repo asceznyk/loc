@@ -6,24 +6,17 @@ def stdin_line(): return stdin.readline().lstrip().rstrip()
 
 
 def solve(p:List, k:int):
-    def k_check(arr:List) -> List:
-        nopos = []
-        for i in range(len(arr)):
-            if (arr[i]-1) % k != i % k: nopos.append(i)
-        return nopos
+    x = 0
+    for i in range(len(p)):
+        if (p[i]-1) % k != i % k: x += 1
 
-    n = len(p)
-    psorted = sorted(p)
-    x = k_check(p)
-
-    if not len(x):
-        stdout.write(f"{0}\n")
+    if not x:
+        print(f"{0}")
         return
-    if len(x) == 2:
-        stdout.write(f"{1}\n")
+    elif x == 2:
+        print(f"{1}")
         return
-
-    stdout.write(f"{-1}\n")
+    print(f"{-1}")
 
 
 def test():
@@ -50,7 +43,7 @@ def test():
 
 def main():
     t = int(stdin_line())
-    stdout.write("\n")
+    print("")
     for _ in range(t):
         n, k = tuple(int(i) for i in stdin_line().split(' '))
         p = [int(i) for i in stdin_line().split(' ')]
