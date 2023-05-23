@@ -4,7 +4,7 @@ from sys import stdin, stdout
 def stdin_line(): return stdin.readline().lstrip().rstrip()
 
 
-def solve(n:int, m:int, cache:dict):
+def solve(n:int, m:int, cache:dict) -> str:
     if m > n or (n % 3 and n != m): return "NO"
     elif m == n: return "YES"
 
