@@ -16,9 +16,7 @@ int dfs(vector<vector<int>>& a, vector<vector<int>>& visited, int i, int j) {
 			r < 0 || r > a.size()-1 || c < 0 || c > a[0].size()-1 ||
 			visited[r][c] == 1 ||
 			a[r][c] == 0
-		) {
-			continue;
-		}
+		) continue;
 		total += dfs(a, visited, r, c);
 	}
 
