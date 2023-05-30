@@ -36,32 +36,7 @@ void solve(vector<vector<int>>& a, vector<vector<int>>& visited) {
 	cout << ans << endl;
 }
 
-void fill_row(vector<int>& row) {
-	generate(row.begin(), row.end(), [](){ return rand() % 10; });
-}
-
-void fill_matrix(vector<vector<int>>& mat) {
-	for_each(mat.begin(), mat.end(), fill_row);
-}
-
-void test () {
-	for(int t = 0; t < 10000; ++t) {
-		int n = rand() % 10 + 1;
-		int m = rand() % 10 + 1;
-
-		vector<vector<int>> a(n, vector<int>(m,0));
-		vector<vector<int>> visited(n, vector<int>(m,0));
-
-		cout << n << " " << m << endl; 
-
-		fill_matrix(a);
-		solve(a, visited);
-	}
-}
-
 int main() {
-	test();
-
 	int t = 1;
 	cin >> t;
 	while(t--) {
