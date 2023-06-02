@@ -1,4 +1,4 @@
- # Solutions to JavaScript/Python problems #
+# loc (lines of code) #
 
- Solutions to problems on codeforces, codewars and leetcode
+solutions to problems on codeforces, codewars and leetcode
 
