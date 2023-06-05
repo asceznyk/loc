@@ -1,4 +1,10 @@
-# loc (lines of code) #
+# loc (lines of code)
 
-solutions to problems on codeforces, codewars and leetcode
+Solutions to problems on codeforces, codewars and leetcode
+
+
+### ground rules
+
+1. No peeking at solutions 
+2. If you cannot solve it within 90 mins, goto next problem
 
