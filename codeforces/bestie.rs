@@ -1,5 +1,6 @@
 use std::io;
 use std::str::FromStr;
+use std::convert::TryInto;
 
 fn gcd(mut a: i64, mut b: i64) -> i64 {
     while b != 0 { (a, b) = (b, a % b) };
@@ -8,32 +9,18 @@ fn gcd(mut a: i64, mut b: i64) -> i64 {
 
 fn gcd_arr(arr: &Vec<i64>) -> i64 {
     let mut res = arr[0];
-    for i in 1..arr.len() { res = gcd(res, arr[i]) };
+    for n in 1..arr.len() { res = gcd(res, arr[n]) };
     res
 }
 
-fn check_gcd(a: &Vec<i64>) -> bool {
-    gcd_arr(&a) == 1
-}
-
 fn solve(a: &mut Vec<i64>) {
-    if check_gcd(&a) { println!("{}", 0); return };
-
-    let n = a.len();
-    for i in (0..n).rev().step_by(1) {
-        let temp1 = a[i];
-        a[i] = gcd(a[i], (i+1) as i64);
-        if check_gcd(&a) { println!("{}", n-i); return };
-
-        for j in (i+1..n).rev().step_by(1) {
-            let temp2 = a[j];
-            a[j] = gcd(a[j], (j+1) as i64); 
-            if check_gcd(&a) { println!("{}", (n-i) + (n-j)); return; }
-            a[j] = temp2;
-        }
-
-        a[i] = temp1;
-    }
+    let g = gcd_arr(&a);
+    if g == 1 { println!("{}", 0); return };
+    
+    let n: i64 = a.len().try_into().unwrap();
+    if gcd(g, n) == 1 { println!("{}", 1); return };
+    if gcd(g, n-1) == 1 { println!("{}", 2); return };
+    if gcd_arr(&vec![g, n, n-1]) == 1 { println!("{}", 3); return };
 }
 
 #[allow(dead_code)]
