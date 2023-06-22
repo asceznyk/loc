@@ -43,8 +43,8 @@ fn solve(a: &[i64]) -> usize {
     if n == 1 || c == 0 {  return 1 };
     if n == 2 { return 2 };
 
-    let (mut i, mut k) = (0,2);
-    for j in 0..n {
+    let (mut i, mut k) = (0,0);
+    for j in 2..n {
         let r = a[j-1];
         if r <= cmp::max(a[i], a[j]) && r >= cmp::min(a[i], a[j]) { 
             k += 1; 
