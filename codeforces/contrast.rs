@@ -22,15 +22,6 @@ fn read_vec<T: FromStr>() -> Result<Vec<T>, T::Err> {
     read_line().split_whitespace().map(|x| x.parse::<T>()).collect()
 }
 
-fn next() {
-    let t = read_num::<i32>().unwrap();
-    for _i in 0..t {
-        let _n = read_num::<i32>().unwrap();
-        let mut a = read_vec::<i64>().unwrap();
-        println!("{}", solve(&mut a));
-    }
-}
-
 fn contrast(a: &[i64]) -> i64 {
     let mut c = 0;
     for i in 1..a.len() { c += (a[i-1]-a[i]).abs() };
@@ -52,6 +43,15 @@ fn solve(a: &[i64]) -> usize {
     }
 
     return n-k;
+}
+
+fn next() {
+    let t = read_num::<i32>().unwrap();
+    for _i in 0..t {
+        let _n = read_num::<i32>().unwrap();
+        let mut a = read_vec::<i64>().unwrap();
+        println!("{}", solve(&mut a));
+    }
 }
 
 fn main() {
