@@ -2,6 +2,26 @@ use std::io;
 use std::str::FromStr;
 use std::convert::TryInto;
 
+#[allow(dead_code)]
+fn read_line() -> String {
+    let mut buffer = String::new();
+    io::stdin()
+        .read_line(&mut buffer)
+        .expect("failed to read line");
+ 
+    buffer
+}
+
+#[allow(dead_code)]
+fn read_num<T: FromStr>() -> Result<T, T::Err>{
+    read_line().trim().parse::<T>()
+}
+
+#[allow(dead_code)]
+fn read_vec<T: FromStr>() -> Result<Vec<T>, T::Err> {
+    read_line().split_whitespace().map(|x| x.parse::<T>()).collect()
+}
+
 fn gcd(mut a: i64, mut b: i64) -> i64 {
     while b != 0 { (a, b) = (b, a % b) };
     a
@@ -21,26 +41,6 @@ fn solve(a: &mut Vec<i64>) {
     if gcd(g, n) == 1 { println!("{}", 1); return };
     if gcd(g, n-1) == 1 { println!("{}", 2); return };
     if gcd_arr(&vec![g, n, n-1]) == 1 { println!("{}", 3); return };
-}
-
-#[allow(dead_code)]
-fn read_line() -> String {
-    let mut buffer = String::new();
-    io::stdin()
-        .read_line(&mut buffer)
-        .expect("failed to read line");
- 
-    buffer
-}
-
-#[allow(dead_code)]
-fn read_num<T: FromStr>() -> Result<T, T::Err>{
-    read_line().trim().parse::<T>()
-}
-
-#[allow(dead_code)]
-fn read_vec<T: FromStr>() -> Result<Vec<T>, T::Err> {
-    read_line().split_whitespace().map(|x| x.parse::<T>()).collect()
 }
 
 fn main() {
