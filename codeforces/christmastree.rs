@@ -33,7 +33,7 @@ fn solve(dims:&Vec<i64>, idxs:&Vec<i64>) {
     println!("{}", (full_area - int_area));
 }
 
-fn input() {
+fn main() {
     let t = read_num::<i64>().unwrap();
     for _ in 0..t {
         let dims = read_vec::<i64>().unwrap();
@@ -41,10 +41,4 @@ fn input() {
         solve(&dims, &idxs);
     }
 }
-
-fn main() {
-    input();
-}
-
-
 
