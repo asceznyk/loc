@@ -19,28 +19,6 @@ def solve(p:List, k:int):
     print(f"{-1}")
 
 
-def test():
-    import random
-    from random import randint
-
-    ## manual tests
-    solve([3,1,2,4], 1)
-    solve([3,4,1,2], 2)
-    solve([3,1,4,2], 2)
-    solve([3,2,4,1], 2)
-    solve([4,5,9,1,8,6,10,2,3,7], 3)
-    solve([4,6,9,1,8,5,10,2,3,7], 3)
-    solve([4,6,9,1,8,5,10,3,2,7], 3)
-
-    ## edge tests
-    for i in range(5):
-        n = randint(2, 2 * 10**5)
-        k = randint(1, n-1)
-        p = [i for i in range(n)]
-        random.shuffle(p)
-        solve(p, k)
-
-
 def main():
     t = int(stdin_line())
     print("")
@@ -53,6 +31,5 @@ def main():
 
 
 if __name__ == '__main__':
-    test()
     main()
 
