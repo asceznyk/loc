@@ -1,17 +1,21 @@
 from typing import List
 
 
-def solve(grid: List[List[int]]):
+inf = int(1e+9)
+
+
+def solve_dp(grid: List[List[int]]):
+    n, m = len(grid), len(grid[0])
     dp = [[0 for _ in l] for l in grid]
 
     dp[0][0] = grid[0][0]
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
+    for i in range(n):
+        for j in range(m):
             if i == 0 and j == 0: continue
-            t = []
-            if i > 0: t.append(dp[i-1][j])
-            if j > 0: t.append(dp[i][j-1])
-            dp[i][j] = grid[i][j] + (min(t) if len(t) else int(1e+9))
+            dp[i][j] = grid[i][j] + min(
+                inf if i-1 < 0 or down else dp[i-1][j],
+                inf if j-1 < 0 else dp[i][j-1]
+            )
 
     print(dp[i][j])
 
