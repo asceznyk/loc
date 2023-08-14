@@ -21,13 +21,13 @@ fn read_vec<T: FromStr>() -> Result<Vec<T>, T::Err> {
 fn solve(n:isize) {
   let x = ((n as f32).sqrt().floor()) as isize;
   for k in 2isize..x+1 {
-    let (mut m, mut t)= (n-1, 1);
-    while m >= 0 {
-      if m == 0 && t > 2 { println!("YES"); return };
+    let (mut m, mut t)= (n-(1+k+k.pow(2)), 3);
+    while m > 0 {
       m -= k.pow(t);
       t += 1;
       if m < 0 { break }; 
     };
+    if m == 0 { println!("YES"); return };
   }
   println!("NO");
 }
