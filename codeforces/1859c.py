@@ -8,8 +8,7 @@ def solve(n:int):
   for i in range(n):
     p = l[:i] + [l[j]+i for j in reversed(range(n-i))]
     e = [(i+1)*p[i] for i in range(n)]
-    cur = sum(e) - max(e)
-    ans = max(ans, cur)
+    ans = max(ans, sum(e)-max(e))
   print(ans)
 
 def main():
