@@ -9,7 +9,7 @@ def solve(n:int):
     p = l[:i] + [l[j]+i for j in reversed(range(n-i))]
     e = [(i+1)*p[i] for i in range(n)]
     cur = sum(e) - max(e)
-    ans = cur if cur > ans else ans
+    ans = max(ans, cur)
   print(ans)
 
 def main():
