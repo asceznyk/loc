@@ -6,7 +6,7 @@ def solve(n:int):
   l = [i+1 for i in range(n)]
   ans = 0
   for i in range(n):
-    p = l[:i] + [l[j]+i for j in reversed(range(n-i))]
+    p = l[:i] + l[i:][::-1]
     e = [(i+1)*p[i] for i in range(n)]
     ans = max(ans, sum(e)-max(e))
   print(ans)
