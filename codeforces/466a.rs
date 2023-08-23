@@ -20,16 +20,7 @@ fn solve(n:usize, m:usize, a:usize, b:usize) {
   println!("{}", *exps.iter().min().unwrap());
 }
 
-fn test() {
-  solve(6, 2, 1, 2);
-  solve(5, 2, 2, 3);
-  solve(10, 3, 5, 1);
-  solve(1, 1000, 1, 2);
-  solve(10, 3, 1, 2);
-}
-
 fn main() {
-  //test();
   let x = read_vec::<usize>().unwrap();
   let (n, m, a, b) = (x[0], x[1], x[2], x[3]);
   solve(n, m, a, b);
