@@ -1,5 +1,6 @@
 use std::io;
 use std::str::FromStr;
+use std::fmt::Display;
 
 #[allow(dead_code)]
 fn read_line() -> String {
@@ -18,7 +19,7 @@ fn read_vec<T: FromStr>() -> Result<Vec<T>, T::Err> {
   read_line().split_whitespace().map(|x| x.parse::<T>()).collect()
 }
 
-fn print_format_vec<T: std::fmt::Display>(v:&Vec<T>) {
+fn print_format_vec<T: Display>(v:&Vec<T>) {
   let mut s = String::new();
   for i in 0..v.len() {
     s.push_str(&format!("{} ", v[i]).to_string());
