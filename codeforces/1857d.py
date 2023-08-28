@@ -1,5 +1,4 @@
 from typing import List
-from operator import itemgetter
 from sys import stdin, stdout
 
 inf = int(1e+9)
