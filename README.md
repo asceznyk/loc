@@ -1,4 +1,4 @@
-# loc (lines of code)
+# vault
 
 Solutions to problems on codeforces, codewars and leetcode
 
