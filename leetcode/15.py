@@ -4,8 +4,6 @@ class Solution:
   def threeSum(self, nums:List[int]) -> List[List[int]]:
     triplets = set()
     nums = sorted(nums)
-    if all([x > 0 for x in nums]): return list(triplets)
-    elif all([x < 0 for x in nums]): return list(triplets)
     for k, x in enumerate(nums):
       if x > 0: break
       if k > 0 and nums[k-1] == x: continue
