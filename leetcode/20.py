@@ -7,7 +7,7 @@ class Solution:
     }
     stack = []
     l = 0
-    for i, c in enumerate(s):
+    for c in s:
       if len(stack) and c == closing[stack[-1]]:
         stack.pop()
         l += 2

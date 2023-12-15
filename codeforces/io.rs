@@ -22,11 +22,10 @@ fn solve() {}
 
 fn test() {}
 
-fn input() {}
-
 fn main() {
   test();
-  input();
+  let t = read_num::<T>().unwrap();
+  for _ in 0..t { /* fill this */ }
 }
 
 

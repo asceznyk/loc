@@ -34,10 +34,10 @@ impl Random {
 }
 
 #[allow(dead_code)]
-fn random_array(rnd:&mut Random, n: usize, r: i64) -> Vec<i64> {
+fn random_array<T>(rnd:&mut Random, n:usize, r:T) -> Vec<T> {
   let mut a = vec![];
   for _ in 0..n {
-    a.push(rnd.next_in_range(0, r as usize) as i64);
+    a.push(rnd.next_in_range(0, r as usize) as T);
   }
   a
 }

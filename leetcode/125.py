@@ -6,6 +6,5 @@ class Solution:
     for c in s:
       if c not in alphabet: continue
       n += c
-    print(n)
     return n == n[::-1]
 

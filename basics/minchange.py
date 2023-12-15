@@ -4,7 +4,7 @@ from typing import List
 inf = int(1e+9)
 
 
-def solve_dfs(n:int, a:List[int]):
+def solve_dfs(n:int, a:List[int]) -> int:
     if n == 0: return 0
     m = inf
     for x in a:
@@ -22,9 +22,6 @@ def solve_dp(n:int, a:List[int]):
 
 
 def main():
-    print(solve_dfs(11, [5,5,1]))
-    print(solve_dfs(6, [1,3,4]))
-
     solve_dp(11, [5,5,1])
     solve_dp(6, [1,3,4])
 
