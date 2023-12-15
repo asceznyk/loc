@@ -1,15 +1,23 @@
+import time
 from typing import List
 
 class Solution:
   def generateParenthesis(self, n:int) -> List[str]:
-    patterns = ["()"*n]
-    stack = [patterns[0]]
-    while stack:
-      p = stack.pop()
-      for i, c in enumerate(p):
-        if i > 0 and f"{p[i-1]}{c}" == ")(":
-          np = f"{p[:i-1]}{c}{p[i-1]}{p[i+1:]}"
-          if np in patterns: break
-          stack.append(np)
-          patterns.append(np)
+    def backtrack(nopen, nclose):
+      if nopen == nclose == n:
+        patterns.append("".join(stack))
+        return
+      if nopen < n:
+        stack.append("(")
+        backtrack(nopen+1, nclose)
+        stack.pop()
+      if nclose < nopen:
+        stack.append(")")
+        backtrack(nopen, nclose+1)
+        stack.pop()
+    nopen, nclose = 0, 0
+    stack = []
+    patterns = []
+    backtrack(0,0)
     return patterns
+
