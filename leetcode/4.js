@@ -7,10 +7,6 @@ const findMedianSortedArrays = (nums1, nums2)  => {
 	} else {
 		median = (nums[Math.floor((total-1)/2)] + nums[Math.floor(total/2)]) / 2;
 	}
-
 	return median;
 }
-
-let m = findMedianSortedArrays([2,1], [3,4])
-console.log(m)
 
