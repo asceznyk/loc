@@ -6,17 +6,16 @@ using namespace std;
 class Solution {
 public:
   int carFleet(int target, vector<int>& position, vector<int>& speed) {
-    int n = position.size();
-    int fleet = n;
-    float prevTime = 0.0;
+    int fleet = 0;
     float maxTime = 0.0;
-    map<int,int,greater<int>> cars;
-    for (int i = 0; i < n; i++) cars.insert({position[i], speed[i]});
-    for (const auto & car: cars) {
-      float currTime = (float(target)-float(car.first))/float(car.second);
-      if(currTime <= maxTime) fleet--; 
-      prevTime = currTime;
-      if(prevTime > maxTime) { maxTime = prevTime; }
+    map<int,float> times;
+    for (int i = 0; i < position.size(); i++)
+      times[-position[i]] = (float)(target-position[i])/speed[i];
+    for (const auto & t: times) {
+      if(t.second > maxTime) {
+        maxTime = t.second;
+        fleet++;
+      } 
     }
     return fleet;
   }
