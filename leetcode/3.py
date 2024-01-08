@@ -8,6 +8,6 @@ class Solution:
         c = len(ss)
       ss += char
       c += 1
-      if c > m: m = c
+      m = max(c,m)
     return m
 
