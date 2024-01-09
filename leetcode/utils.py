@@ -1,3 +1,11 @@
+from typing import List
+
+class TreeNode:
+  def __init__(self, val=0, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right
+
 class ListNode:
   def __init__(self, val=0, next=None):
     self.val = val
@@ -19,7 +27,7 @@ def catLL(head:Optional[ListNode]):
     head = head.next
   print(f"{s}None")
 
-def binary_search(self, nums:List[int], target:int) -> int:
+def binarySearch(self, nums:List[int], target:int) -> int:
   lp = 0
   rp = len(nums)-1
   while lp <= rp:
@@ -30,3 +38,5 @@ def binary_search(self, nums:List[int], target:int) -> int:
     elif n > target: rp = mp-1
   return False
 
+def buildBinaryTree(nums:List[int]) -> TreeNode:
+  for n in nums

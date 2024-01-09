@@ -13,6 +13,15 @@ Try to push it, but keep in mind that problem solving is priority.
 4. System Design
 
 
+## Topics by priority
+
+1. Trees/Graphs
+2. Arrays/Strings
+3. DP
+4. Recursion
+5. Geometry
+
+
 ## Time 
 4 hours everyday - we try to attack the problems for the first 2 weeks without time constraints, then we attack problems with the time constraints.
 
