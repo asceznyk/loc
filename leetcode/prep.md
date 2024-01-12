@@ -15,7 +15,7 @@ Try to push it, but keep in mind that problem solving is priority.
 ## Topics by priority
 1. Trees/Graphs
 2. Arrays/Strings
-3. DP
+3. Dynamic Programming
 4. Recursion
 5. Geometry/Math
 
