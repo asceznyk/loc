@@ -6,12 +6,8 @@ fn coin_change(coins:Vec<i32>, amount:i32) -> i32 {
   for i in 1..=amount {
     let a = i as usize;
     for x in &coins {
-      dp[a] = min(
-        if i-x >= 0 { 
-          dp[a-(x as usize)]+1 
-        } else { amount+1 }, 
-        dp[a]
-      );
+      if i-x < 0 { continue };
+      dp[a] = min(dp[a-(*x as usize)]+1, dp[a]);
     }
   }
   let ans = dp[amount as usize];
