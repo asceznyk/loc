@@ -33,7 +33,10 @@ Try to push it, but keep in mind that problem solving is priority.
 
 
 ## Plan
-1. Look at 2-3 solutions of said Topic.
-2. Study about topic in CP Handbook, try solve the problems from the book if time permits.
-3. Cover some part of the problems by topic in CtCI book.
+1. Select 2 topics.
+2. Look at 2-3 solutions of said topics.
+3. Study about topics in CP Handbook. Try solve the problems from the book if time permits.
+4. Cover or revise topics in CtCI book. 
+5. Solve problems.
+
 

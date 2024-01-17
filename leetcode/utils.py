@@ -39,4 +39,29 @@ def binarySearch(self, nums:List[int], target:int) -> int:
   return False
 
 def buildBinaryTree(nums:List[int]) -> TreeNode:
-  for n in nums
+  n = len(nums)-1
+  def getNode(i:int) -> Union[None,TreeNode]:
+    if i > n: return
+    x = nums[i]
+    return None if x is None else TreeNode(x)
+  def build(root:TreeNode, i:int):
+    li, ri = (2*i)+1, (2*i)+2
+    if not root: return
+    root.left = getNode(li)
+    root.right = getNode(ri)
+    build(root.left, li)
+    build(root.right, ri)
+  root = TreeNode(nums[0])
+  build(root, 0)
+  return root
+
+def traverseBinaryTreeDFS(root:TreeNode):
+  stack = [root]
+  visited = []
+  while stack:
+    node = stack.pop()
+    if not node: continue
+    visited.append(node.val)
+    stack.append(node.right)
+    stack.append(node.left)
+  return visited

@@ -1,6 +1,5 @@
 class Solution:
   def numTrees(self, n:int) -> int:
-    if n == 1 or n == 0: return 1
     dp = [0] * (n+1)
     dp[0] = 1
     dp[1] = 1
@@ -10,3 +9,5 @@ class Solution:
         dp[i] += dp[j-1] * dp[i-j]
     return dp[n]
 
+
+print(Solution().numTrees(1))
