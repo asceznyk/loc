@@ -1,15 +1,18 @@
+from typing import List, Union
+
 class Solution:
-  def isValidBST(self, root:TreeNode) -> bool:
-    stack = []
+  def isValidBST(self, root:TreeNode) -> List[int]:
+    def rdfs(node:TreeNode):
+      if not node: return
+      rdfs(node.left)
+      if visited and node.val <= visited[-1]:
+        nonlocal isbst
+        isbst = False
+      visited.append(node.val)
+      rdfs(node.right)
+      return isbst
     visited = []
-    curr = root
-    while stack or curr:
-      while curr:
-        stack.append(curr)
-        curr = curr.left
-      curr = stack.pop()
-      if visited and curr.val <= visited[-1]: return False
-      visited.append(curr.val)
-      curr = curr.right
-    return True
+    isbst = True
+    rdfs(root)
+    return isbst
 
