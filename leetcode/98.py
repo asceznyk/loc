@@ -10,7 +10,6 @@ class Solution:
         isbst = False
       visited.append(node.val)
       rdfs(node.right)
-      return isbst
     visited = []
     isbst = True
     rdfs(root)
