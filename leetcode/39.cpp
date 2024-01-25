@@ -5,9 +5,6 @@ public:
       vector<int> idxs{};
       vector<vector<int>> res{};
       backtrack(target, candidates, comb, idxs, res); 
-      for (auto c: res) {
-        printVector(c);
-      }
       return res;
     }
 private:
