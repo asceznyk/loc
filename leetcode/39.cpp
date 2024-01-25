@@ -17,9 +17,7 @@ private:
     ) {
       int csum = accumulate(comb.begin(), comb.end(), 0);
       if(csum >= target) {
-        if (csum == target) {
-          res.push_back(comb);
-        } 
+        if (csum == target) res.push_back(comb);
         return;
       }
       for(int i = 0; i < candidates.size(); i++) {
