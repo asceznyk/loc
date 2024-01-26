@@ -1,5 +1,3 @@
-#include "utils.h"
-
 class Solution {
 public:
   vector<vector<int>> subsetsWithDup(vector<int>& nums) {
@@ -27,12 +25,3 @@ private:
     search(nums, ss, pos, k+1);
   }
 };
-
-int main() {
-  Solution solve;
-  vector<int> s1 = {1,2,2};
-  solve.subsetsWithDup(s1);
-  vector<int> s2 = {0};
-  solve.subsetsWithDup(s2);
-  return 0;
-}
