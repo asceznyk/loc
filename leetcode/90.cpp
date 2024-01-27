@@ -33,8 +33,6 @@ class Solution {
     vector<vector<int>> pos{};
     sort(nums.begin(), nums.end());
     search(nums, ss, pos, 0);
-    for(auto x: pos)
-      printVector(x);
     return pos;
   }
 private:
