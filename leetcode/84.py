@@ -9,10 +9,8 @@ class Solution:
       while stack and stack[-1][0] > h:
         g, j = stack.pop()
         p = j
-        maxArea = max(maxArea, g, h*(i-j+1), g*(i-j))
+        maxArea = max(maxArea, h*(i-j+1), g*(i-j))
       stack.append((h,p))
-    n = len(heights)
-    for h, i in stack:
-      maxArea = max(maxArea, h*(n-i))
+    for h, i in stack: maxArea = max(maxArea, h*(len(heights)-i))
     return maxArea
 
