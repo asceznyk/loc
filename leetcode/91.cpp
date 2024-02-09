@@ -8,11 +8,8 @@ public:
     for(int i = n-2; i >= 0; i--) {
       int x = s[i]-'0';
       if(x == 0) r = 0;
-      else if(x == 1) r = p + q;
-      else if(x >= 2) {
-        r = p;
-        if(x == 2 && (int)s[i+1]-'0' <= 6) r = r + q;
-      }
+      else r = p;
+      if(x == 1 || (x == 2 && (int)s[i+1]-'0' <= 6)) r += q;
       q = p;
       p = r;
     }
