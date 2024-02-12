@@ -1,5 +1,3 @@
-#include "utils.h"
-
 class Solution {
 public:
   vector<vector<int>> dirs = {{0,1}, {1,0}, {0,-1}, {-1,0}};
