@@ -1,5 +1,4 @@
 import heapq
-
 from typing import List
 
 class Solution:
@@ -7,9 +6,8 @@ class Solution:
     heap = nums[:k].copy()
     heapq.heapify(heap)
     for i in range(k, len(nums)):
-      if nums[i] <= heap[0]: continue
-      heapq.heappop(heap)
       heapq.heappush(heap, nums[i])
+      if len(heap) > k: heapq.heappop(heap)
     return heap[0]
 
 
