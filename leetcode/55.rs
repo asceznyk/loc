@@ -4,7 +4,7 @@ impl Solution {
     let (mut y, mut j) = (0i32, 0i32);
     for i in 0..n {
       let x:i32 = nums[(i as usize)];
-      if x+(i as i32) >= y+j { (y,j) = (x,i as i32) };
+      if x+i >= y+j { (y,j) = (x,i) };
       if x == 0 && (y+j <= i && i < n-1) { return false; }
     }
     true
