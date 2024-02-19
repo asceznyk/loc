@@ -1,5 +1,3 @@
-#https://cses.fi/problemset/task/1621/
-
 from typing import List
 from sys import stdin, stdout
 
