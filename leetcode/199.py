@@ -8,5 +8,5 @@ class Solution:
         node = q.popleft()
         if node.left: q.append(node.left)
         if node.right: q.append(node.right)
-        res.append(node.val)
+      res.append(node.val)
     return res
