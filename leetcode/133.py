@@ -6,18 +6,11 @@ class Node:
 class Solution:
   def cloneGraph(self, node:Node) -> Node:
     def rdfs(curr:Node):
-      new = store[curr.val]
-      for adj in curr.neighbors:
-        if adj.val in store:
-          new.neighbors.append(store[adj.val])
-          continue
-        store[adj.val] = Node(adj.val)
-        new.neighbors.append(store[adj.val])
-        rdfs(adj)
-      return
-    if not node: return None
-    store = {node.val:Node(node.val)}
-    rdfs(node)
-    return store[node.val]
-
+      if curr.val in store: return store[curr.val]
+      copy = Node(curr.val)
+      store[curr.val] = copy
+      for adj in curr.neighbors: copy.neighbors.append(rdfs(adj))
+      return copy
+    store = {}
+    return rdfs(node) if node else None
 
