@@ -67,10 +67,8 @@ def traverseBinaryTreeDFS(root:TreeNode):
     stack.append(node.left)
   return visited
 
-def callTest(funcs:List[str], largs:List[str]):
-  obj = WordDictionary()
-  callees = {"WordDictionary":obj, "addWord":obj.addWord, "search":obj.search}
-  for func, args in zip(funcs[1:], largs[1:]):
-    print(func, args, callees[func](*args))
-
+def callObjMethods(obj:object, funcs:List[str], largs:List[List[str]]):
+  ins = obj(*largs[0])
+  callees = {method_name:getattr(ins, method_name) for method_name in set(funcs[1:])}
+  for func, args in zip(funcs[1:], largs[1:]):print(func, args, callees[func](*args))
 
