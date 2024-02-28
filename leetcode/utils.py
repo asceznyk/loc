@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict, Optional, Union
 
 class TreeNode:
   def __init__(self, val=0, left=None, right=None):
@@ -38,8 +38,9 @@ def binarySearch(self, nums:List[int], target:int) -> int:
     elif n > target: rp = mp-1
   return False
 
-def buildBinaryTree(nums:List[int]) -> TreeNode:
+def buildBinaryTree(nums:List[int]) -> Union[TreeNode,None]:
   n = len(nums)-1
+  if n < 0: return None
   def getNode(i:int) -> Union[None,TreeNode]:
     if i > n: return
     x = nums[i]
@@ -65,3 +66,11 @@ def traverseBinaryTreeDFS(root:TreeNode):
     stack.append(node.right)
     stack.append(node.left)
   return visited
+
+def callTest(funcs:List[str], largs:List[str]):
+  obj = WordDictionary()
+  callees = {"WordDictionary":obj, "addWord":obj.addWord, "search":obj.search}
+  for func, args in zip(funcs[1:], largs[1:]):
+    print(func, args, callees[func](*args))
+
+
