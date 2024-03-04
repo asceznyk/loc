@@ -10,13 +10,13 @@ class TimeMap:
   def get(self, key:str, timestamp:int) -> str:
     res = ""
     vals = self.tmap.get(key, [])
-    a, b = 0, len(vals)-1
-    while a <= b:
-      k = (a+b)//2
-      if vals[k][1] <= timestamp:
-        res = vals[k][0]
-        a = k+1
-      else: b = k-1
+    l, r = 0, len(vals)-1
+    while l <= r:
+      m = (l+r)//2
+      if vals[m][1] <= timestamp:
+        res = vals[m][0]
+        l = m+1
+      else: r = m-1
     return res
 
 
