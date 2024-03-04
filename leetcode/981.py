@@ -1,5 +1,3 @@
-from utils import *
-
 class TimeMap:
 
   def __init__(self):
