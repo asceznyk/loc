@@ -1,5 +1,3 @@
-from utils import *
-
 # O(n*log(n))
 class Solution:
   def isNStraightHand(self, hand:List[int], groupSize:int) -> bool:
