@@ -8,7 +8,7 @@ private:
     for(auto i: idxs) {
       if(triplets[i][j] > target[j]) continue;
       tentative.push_back(i);
-      if(triplets[i][j] == target[j] ) found = true;
+      if(triplets[i][j] == target[j]) found = true;
     }
     if(!found) tentative.clear();
     return tentative;
@@ -24,9 +24,8 @@ public:
     vector<int> cons;
     for(int k = 0; k < 3; k++) cons.push_back(triplets[idxs[0]][k]);
     for(int i = 1; i < idxs.size(); i++) {
-      for(int k = 0; k < 3; k++) {
+      for(int k = 0; k < 3; k++)
         cons[k] = max(cons[k], triplets[idxs[i]][k]); 
-      }
     }
     return cons[0] == target[0] && cons[1] == target[1] && cons[2] == target[2];
   }
