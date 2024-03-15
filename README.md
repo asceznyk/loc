@@ -1,4 +1,4 @@
 # loc
-Solutions to problems on codeforces, codewars and leetcode
+Solutions to problems on codeforces, CSES and leetcode
 
 
