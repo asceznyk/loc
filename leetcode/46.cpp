@@ -16,7 +16,6 @@ private:
   ) {
     if(p.size() == nums.size()) {
       res.push_back(p);
-      print_vector(p);
       return;
     }
     for(int i = 0; i < nums.size(); i++) {

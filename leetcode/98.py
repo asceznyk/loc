@@ -1,5 +1,3 @@
-from typing import List, Union
-
 class Solution:
   def isValidBST(self, root:TreeNode) -> List[int]:
     def rdfs(node:TreeNode):

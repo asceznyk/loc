@@ -1,3 +1,5 @@
+import heapq
+
 from typing import List, Dict, Optional, Union
 
 class TreeNode:
@@ -67,7 +69,7 @@ def traverseBinaryTreeDFS(root:TreeNode):
     stack.append(node.left)
   return visited
 
-def callObjMethods(obj:object, funcs:List[str], largs:List[List[str]]):
+def callObjMethods(obj:object, funcs:List[str], largs:List[List[Union[str,int]]]):
   ins = obj(*largs[0])
   callees = {method_name:getattr(ins, method_name) for method_name in set(funcs[1:])}
   for func, args in zip(funcs[1:], largs[1:]):print(func, args, callees[func](*args))

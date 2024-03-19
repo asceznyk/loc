@@ -22,4 +22,3 @@ class WordDictionary:
     tree = self.trie
     return dfs(tree, 0)
 
-

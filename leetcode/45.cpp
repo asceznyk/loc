@@ -25,7 +25,7 @@ public:
     int jumps = 0, i = 0;
     while (i+nums[i] < n-1) {
       int imax = i+1, vmax = 0;
-      for (int j = i+1; j < i+1+ nums[i]; j++) {
+      for (int j = i+1; j < i+1+nums[i]; j++) {
         if (nums[j]+j < vmax) continue;
         imax = j;
         vmax = nums[j]+j;

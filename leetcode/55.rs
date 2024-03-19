@@ -5,7 +5,7 @@ impl Solution {
     for i in 0..n {
       let x:i32 = nums[(i as usize)];
       if x+i >= y+j { (y,j) = (x,i) };
-      if x == 0 && (y+j <= i && i < n-1) { return false; }
+      if x == 0 && y+j <= i && i < n-1 { return false; }
     }
     true
   }

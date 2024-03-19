@@ -15,7 +15,6 @@ class Solution:
         stack.append(")")
         backtrack(nopen, nclose+1)
         stack.pop()
-    nopen, nclose = 0, 0
     stack = []
     patterns = []
     backtrack(0,0)
