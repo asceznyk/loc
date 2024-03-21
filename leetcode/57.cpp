@@ -1,5 +1,3 @@
-#include "../utils.h"
-
 class Solution {
 private:
   int getIndex(vector<vector<int>>& intervals, int& n, int target, int k) {
