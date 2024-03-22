@@ -30,13 +30,12 @@ class Solution:
       if preStart == preEnd: return TreeNode(val=rval)
       inIdx = inMap[preorder[preStart]]
       root = TreeNode(val=rval)
-      leftPreStart = preStart+1
-      rightPreStart = preStart+(inIdx-inStart)
+      leftSize = inIdx-inStart
       root.left = build(
-        leftPreStart, rightPreStart, inStart, inIdx-1
+        preStart+1, preStart+leftSize, inStart, inIdx-1
       )
       root.right = build(
-        rightPreStart+1, rightPreStart+(inEnd-inIdx), inIdx+1, inEnd
+        preStart+1+leftSize, preStart+(inEnd-inStart), inIdx+1, inEnd
       )
       return root
     inMap = {k:v for v,k in enumerate(inorder)}
