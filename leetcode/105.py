@@ -1,3 +1,4 @@
+# O(m ** n)
 class Solution:
   def buildTree(self, preorder:List[int], inorder:List[int]) -> Union[TreeNode,None]:
     def build(preorder:List[int], inorder:List[int]) -> Union[None,TreeNode]:
@@ -19,6 +20,7 @@ class Solution:
       return root
     return build(preorder, inorder)
 
+# O(n)
 class Solution:
   def buildTree(self, preorder:List[int], inorder:List[int]) -> Union[TreeNode,None]:
     def build(
