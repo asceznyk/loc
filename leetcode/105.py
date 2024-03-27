@@ -9,13 +9,9 @@ class Solution:
       leftInorder = inorder[:inIdx]
       rightPreStart = preStart+1+len(leftInorder)
       root = TreeNode(val=rval)
-      root.left = build(
-        preorder[preStart+1:rightPreStart],
-        leftInorder
-      )
+      root.left = build(preorder[preStart+1:rightPreStart], leftInorder)
       root.right = build(
-        preorder[rightPreStart:len(preorder)],
-        inorder[inIdx+1:len(inorder)]
+        preorder[rightPreStart:len(preorder)],inorder[inIdx+1:len(inorder)]
       )
       return root
     return build(preorder, inorder)
