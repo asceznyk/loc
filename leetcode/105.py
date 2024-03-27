@@ -33,12 +33,8 @@ class Solution:
       inIdx = inMap[preorder[preStart]]
       root = TreeNode(val=rval)
       leftSize = inIdx-inStart
-      root.left = build(
-        preStart+1, preStart+leftSize, inStart, inIdx-1
-      )
-      root.right = build(
-        preStart+1+leftSize, preStart+(inEnd-inStart), inIdx+1, inEnd
-      )
+      root.left = build(preStart+1, preStart+leftSize, inStart, inIdx-1)
+      root.right = build(preStart+1+leftSize, preStart+(inEnd-inStart), inIdx+1, inEnd)
       return root
     inMap = {k:v for v,k in enumerate(inorder)}
     root = build(0, len(preorder)-1, 0, len(inorder)-1)
