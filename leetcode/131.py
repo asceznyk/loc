@@ -19,5 +19,4 @@ class Solution:
         sub.pop()
     res, sub = [], []
     dfs(0)
-    print(res)
     return res
