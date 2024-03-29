@@ -11,8 +11,6 @@ impl Solution {
     }
     let n = nums.len();
     if n == 1 { return nums[0] };
-    let ans = max(seq(&nums, 0, n-1), seq(&nums, 1, n));
-    println!("{}", ans);
-    ans
+    max(seq(&nums, 0, n-1), seq(&nums, 1, n))
   }
 }
