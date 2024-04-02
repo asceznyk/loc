@@ -1,8 +1,6 @@
 #include <iostream>
 #include <bits/stdc++.h>
 
-//#include "../utils.h"
-
 using namespace std;
 using ll = long long;
 
@@ -36,8 +34,7 @@ int main() {
   vector<ll> counts(x+1, 0);
   counts[0] = 1;
   for(int k = 1; k <= n; k++) {
-    for(int i = 0; i <= x; i++) {
-      if(i-coins[k-1] < 0) continue; 
+    for(int i = coins[k-1]; i <= x; i++) {
       counts[i] += counts[i-coins[k-1]];
       counts[i] %= MOD;
     }
