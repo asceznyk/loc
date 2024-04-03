@@ -1,6 +1,3 @@
-from typing import List
-from sys import stdin, stdout
-
 if __name__ == "__main__":
   n = int(input())
   nums = [int(i) for i in str(input()).split(" ")]
