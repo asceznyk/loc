@@ -5,7 +5,7 @@ if __name__ == "__main__":
   for i in sorted(nums):
     if i != p: k += 1
     p = i
-  print(k, end=" ")
+  print(k)
 
 
 
