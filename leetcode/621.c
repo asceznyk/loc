@@ -9,6 +9,6 @@ int leastInterval(char* tasks, int tasksSize, int n) {
   };
   int ans = (n+1)*(m-1);
   for(int i = 0; i < 26; i++)
-    if(counts[i] == m) ans++;
+    if(counts[i] - (m-1) > 0) ans++;
   return (tasksSize > ans ? tasksSize : ans);
 }
