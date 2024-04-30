@@ -5,6 +5,7 @@ int min(int a, int b) {
 int minDistance(char* word1, char* word2) {
   int m = (int)strlen(word1);
   int n = (int)strlen(word2);
+  if(n == 0 || m == 0) return n > m ? n-m : m-n;
   int dp[m+1][n+1];
   for(int i = 0; i < m+1; i++) {
     for(int j = 0; j < n+1; j++) dp[i][j] = 501;
