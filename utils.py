@@ -1,5 +1,6 @@
 import heapq
 
+from collections import deque
 from typing import List, Dict, Optional, Union
 
 class TreeNode:
@@ -40,27 +41,28 @@ def binarySearch(self, nums:List[int], target:int) -> int:
     elif n > target: rp = mp-1
   return False
 
-def buildBinaryTree(nums:List[int]) -> Union[TreeNode,None]:
-  n = len(nums)-1
-  if n < 0: return None
-  def getNode(i:int) -> Union[None,TreeNode]:
-    if i > n: return
-    x = nums[i]
-    return None if x is None else TreeNode(x)
-  def build(root:TreeNode, i:int):
-    li, ri = (2*i)+1, (2*i)+2
-    if not root: return
-    root.left = getNode(li)
-    root.right = getNode(ri)
-    build(root.left, li)
-    build(root.right, ri)
+def buildBinaryTree(nums:List[Union[int,None]]) -> Union[TreeNode,None]:
+  n = len(nums)
+  if n <= 0: return None
+  i = 0
   root = TreeNode(nums[0])
-  build(root, 0)
+  queue = deque([root])
+  while queue:
+    node = queue.popleft()
+    if node is None: continue
+    l, r = 2*i+1, 2*i+2
+    if l <= n-1 and nums[l] is not None:
+      node.left = TreeNode(nums[l])
+      queue.append(node.left)
+    if r <= n-1 and nums[r] is not None:
+      node.right = TreeNode(nums[r])
+      queue.append(node.right)
+    i += 1
   return root
 
-def traverseBinaryTreeDFS(root:TreeNode):
-  stack = [root]
+def traverseBinaryTree(root:TreeNode) -> List[int]:
   visited = []
+  stack = [root]
   while stack:
     node = stack.pop()
     if not node: continue
