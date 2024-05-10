@@ -1,5 +1,3 @@
-//#include "../utils.h"
-
 int find(vector<int>& link, int x) {
   while(x != link[x]) x = link[x];
   return x;
@@ -52,16 +50,6 @@ public:
         total += w;
       }
     }
-    printf("total = %d\n", total);
     return total;
   }
 };
-
-/*int main() {
-  Solution solve;
-  vector<vector<int>> points1 = {{0,0},{2,2},{3,10},{5,2},{7,0}};
-  solve.minCostConnectPoints(points1);
-  vector<vector<int>> points2 = {{3,12},{-2,5},{-4,1}};
-  solve.minCostConnectPoints(points2);
-  return 0;
-}*/
