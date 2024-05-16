@@ -1,5 +1,3 @@
-#include "../utils.h"
-
 class Solution {
 private:
   void visit(vector<int>& processed, vector<vector<int>>& adj, int n, bool& r) {
@@ -9,9 +7,7 @@ private:
       return;
     }
     processed[n] = 1;
-    for(auto x: adj[n]) {
-      visit(processed, adj, x, r);
-    };
+    for(auto x: adj[n]) visit(processed, adj, x, r);
     processed[n] = 2;
   }
 public:
@@ -31,12 +27,3 @@ public:
     return r;
   }
 };
-
-int main() {
-  Solution solve;
-  vector<vector<int>> prerequisites1 = {{1,0}};
-  vector<vector<int>> prerequisites2 = {{1,0},{0,1}};
-  solve.canFinish(2, prerequisites1);
-  solve.canFinish(2, prerequisites2);
-  return 0;
-}
