@@ -2,16 +2,12 @@ class Solution {
 public:
   int minSubArrayLen(int target, vector<int>& nums) {
     int n = nums.size();
-    int p = 0;
-    vector<int> prefixs(n, 0);
-    for(int i = 0; i < n; i++) {
-      p += nums[i];
-      prefixs[i] = p;
-    }
+    vector<int> prefixs(n+1, 0);
+    for(int i = 1; i < n+1; i++) prefixs[i] = prefixs[i-1] + nums[i-1];
     int ans = 100005;
-    int l = 0, r = 0; 
+    int l = 0, r = 0;
     while (l <= r && r < n) {
-      int s = l > 0 ? prefixs[r] - prefixs[l-1] : prefixs[r];
+      int s = prefixs[r+1] - prefixs[l];
       if(s >= target) {
         ans = min(r-l+1, ans);
         l++;
