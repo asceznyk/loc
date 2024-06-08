@@ -7,10 +7,11 @@ private:
     if (dp[i+1] != -1) return dp[i+1] % MOD;
     char s = pressedKeys[i+1];
     int c = 0;
-    for(int j = 0; j < (s == '7' || s == '9' ? 4 : 3); j++) {
-      if(pressedKeys[i+j+1] != s) break;
+    int j = 0;
+    while(j < (s == '7' || s == '9' ? 4 : 3) && pressedKeys[i+j+1] == s) {
       c += dfs(pressedKeys, dp, i+j+1, n);
       c %= MOD;
+      j++;
     }
     dp[i+1] = (c % MOD);
     return c;
