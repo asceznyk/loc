@@ -16,12 +16,15 @@ int main() {
   for (int i = 0; i < n; i++) {
     int x = desired[i];
     while(j < m) {
-      if(x-k <= apts[j] && apts[j] <= x+k) {
+      int y = apts[j];
+      if(y < x-k) {
+        j++;
+        continue;
+      } else if(abs(x-y) <= k) {
         count++;
         j++;
-        break;
-      } else if(apts[j] > x+k) break; 
-      else j++;
+      }
+      break;
     } 
   }
   cout << count << '\n';
