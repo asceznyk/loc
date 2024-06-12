@@ -8,9 +8,7 @@ private:
     if(grid[i][j] != 0 || visited[i][j] != 0) return 1;
     visited[i][j] = 1;
     int x = 1;
-    for(int k = 0; k < 4; k++) {
-      x &= dfs(visited, grid, dirs, i+dirs[k][0], j+dirs[k][1]);
-    }
+    for(int k = 0; k < 4; k++) x &= dfs(grid, visited, dirs, i+dirs[k][0], j+dirs[k][1]);
     return x;
   }
 public:
