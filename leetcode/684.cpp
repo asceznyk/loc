@@ -9,7 +9,7 @@ private:
       if(child == prt) continue;
       if(!found) dfs(graph, child, cur);
       if(start != -1) cycle[cur] = true;
-      if(cur == start) { start = -1; return; }
+      if(cur == start) { start = -1; break;}
     }
   }
 public:
