@@ -9,12 +9,16 @@ private:
       if(diff > k) break;
       fmax++;
       k -= diff;
-      printf("fmax = %d, k = %d, nums[j] = %d, nums[j-1] = %d\n", fmax, k, nums[j], nums[j-1]);
     }
     return fmax;
   }
 public:
   int maxFrequency(vector<int>& nums, int k) {
+    /* binary-search currVal that has max frequent after at-most k ops
+     * set maxVal and maxCount for the most frequent element, 
+     * then if currCount > maxCount 
+     * if currVal > maxVal: l = m+1
+     * else: r = m-1 */
     int cmax = 0;
     sort(nums.begin(), nums.end());
     printVector(nums);
