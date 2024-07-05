@@ -1,6 +1,3 @@
-import time
-from typing import List
-
 class Solution:
   def generateParenthesis(self, n:int) -> List[str]:
     def backtrack(nopen, nclose):
