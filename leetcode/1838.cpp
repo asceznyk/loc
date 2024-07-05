@@ -16,9 +16,13 @@ public:
   int maxFrequency(vector<int>& nums, int k) {
     /* binary-search currVal that has max frequent after at-most k ops
      * set maxVal and maxCount for the most frequent element, 
-     * then if currCount > maxCount 
-     * if currVal > maxVal: l = m+1
-     * else: r = m-1 */
+     * then if currCount > maxCount: 
+     *  if currVal > maxVal: l = m+1
+     *  else: r = m-1 
+     * else:
+     *  if currVal < maxVal: l = m+1
+     *  else: r = m-1
+     * */
     int cmax = 0;
     sort(nums.begin(), nums.end());
     printVector(nums);
