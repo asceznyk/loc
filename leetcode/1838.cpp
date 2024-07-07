@@ -31,8 +31,7 @@ public:
       p = nums[i];
       maxCount = max(currCount, maxCount);
     };
-    printf("ans = %lld\n", maxCount);
-    return 0;
+    return maxCount;
   }
 };
 
