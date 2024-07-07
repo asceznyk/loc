@@ -1,49 +1,38 @@
-#include "../utils.h"
+typedef long long ll;
 
 class Solution {
 private:
-  int findMaxF(vector<int>& nums, int k, int i) {
-    int fmax = 0;
-    for(int j = i; j > -1; j--) {
-      int diff = nums[i] - nums[j];
-      if(diff > k) break;
-      fmax++;
-      k -= diff;
+  ll indexMax(vector<ll>& prefix, vector<int>& nums, ll k, ll i) {
+    ll x = nums[i];
+    ll l = 0, r = i, m = 0;
+    while(l <= r) {
+      m = (l+r)/2;
+      ll q = ((i-m+1)*x) - (prefix[i] - (m == 0 ? 0 : prefix[m-1]));
+      if (q > k) l = m+1;
+      else r = m-1;
     }
-    return fmax;
+    return l;
   }
 public:
-  int maxFrequency(vector<int>& nums, int k) {
-    /* binary-search currVal that has max frequent after at-most k ops
-     * set maxVal and maxCount for the most frequent element, 
-     * then if currCount > maxCount: 
-     *  if currVal > maxVal: l = m+1
-     *  else: r = m-1 
-     * else:
-     *  if currVal < maxVal: l = m+1
-     *  else: r = m-1
-     * */
-    int cmax = 0;
+  ll maxFrequency(vector<int>& nums, ll k) {
     sort(nums.begin(), nums.end());
-    printVector(nums);
-    for(int i = nums.size()-1; i > -1; i--)
-      cmax = max(cmax, findMaxF(nums, k, i)); //binary search this bitch
-    printf("cmax = %d\n", cmax);
-    return cmax;
+    ll n = nums.size();
+    ll p = 0;
+    vector<ll> prefix(n, 0);
+    for(ll i = 0; i < n; i++) {
+      p += nums[i];
+      prefix[i] = p;
+    }
+    p = 0;
+    ll maxCount = 1;
+    for(ll i = n-1; i > -1; i--) {
+      if(nums[i] == p) continue;
+      ll currCount = i-indexMax(prefix, nums, k, i)+1;
+      p = nums[i];
+      maxCount = max(currCount, maxCount);
+    };
+    printf("ans = %lld\n", maxCount);
+    return 0;
   }
 };
-
-int main() {
-  Solution solve;
-  vector<int> nums = {1,2,4};
-  solve.maxFrequency(nums, 5);
-  nums = {1,4,8,13};
-  solve.maxFrequency(nums, 5);
-  nums = {3,9,6};
-  solve.maxFrequency(nums, 2);
-  nums = {2,3,6,6,9,9,9};
-  solve.maxFrequency(nums, 5);
-  return 0;
-}
-
 
