@@ -7,10 +7,10 @@ private:
       vector<int>& visited,
       int i
       ) {
-    if(visited[i]) return 0;
     int res = 0;
     visited[i] = 1;
     for(auto k: adjList[i]) {
+      if(visited[k]) continue;
       int x = dfs(adjList, hasApple, edgeY, visited, k);
       edgeY[to_string(i)+"_"+to_string(k)] = x;
       edgeY[to_string(k)+"_"+to_string(i)] = x;
