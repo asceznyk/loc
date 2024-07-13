@@ -11,6 +11,5 @@ class Solution:
         slist.append(")")
     slist = []
     dfs(root)
-    ans = "".join(slist)
-    return ans
+    return "".join(slist)
 
