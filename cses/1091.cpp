@@ -14,20 +14,17 @@ int main() {
     else tickets[t] = 1;
   };
   for(int i = 0; i < m; i++) {
-    int p, k, v;
+    int p;
     cin >> p;
-    if(tickets.size() <= 0) {
-      cout << -1 << endl;
+    auto it = tickets.upper_bound(p);
+    if(it == tickets.begin()) {
+      cout << -1 << "\n";
       continue;
     }
-    auto it = tickets.upper_bound(p);
     it--;
-    k = (*it).first, v = (*it).second;
-    k = (v == 0 || k > p) ? -1 : k;
-    cout << k << endl;
-    if(k == -1) continue;
-    tickets[k]--;
-    if(tickets[k] == 0) tickets.erase(k); 
+    cout << it->first << endl;
+    it->second--;
+    if(it->second == 0) tickets.erase(it); 
   }
   return 0;
 }
