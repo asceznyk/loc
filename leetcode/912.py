@@ -10,10 +10,10 @@ class Solution:
       nums[largest], nums[i] = nums[i], nums[largest]
       self.maxHeapify(nums, largest, n)
 
-  def sortColors(self, nums:List[int]):
+  def sortArray(self, nums:List[int]):
     n = len(nums)
     for i in range(n//2, -1, -1): self.maxHeapify(nums, i, n)
     for i in range(n-1, 0, -1):
       nums[0], nums[i] = nums[i], nums[0]
       self.maxHeapify(nums, 0, i)
-
+    return nums
