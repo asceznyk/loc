@@ -7,6 +7,6 @@ func combinationSum4(nums []int, target int) int {
       dp[i] += dp[i-c]
     }
   }
-  return 0
+  return dp[target]
 }
 
