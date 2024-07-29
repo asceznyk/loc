@@ -4,9 +4,7 @@ func minStickers(stickers []string, target string) int {
   for i := 0; i < len(dp); i++ { dp[i] = -1 }
   dp[0] = 0
   for mask := 0; mask < len(dp); mask++ {
-    if dp[mask] == -1 {
-      continue
-    }
+    if dp[mask] == -1 { continue }
     for _, word := range stickers {
       maskApplied := mask
       for _, c := range word {
