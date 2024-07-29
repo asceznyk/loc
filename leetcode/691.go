@@ -10,8 +10,8 @@ func minStickers(stickers []string, target string) int {
       for _, c := range word {
         for i := 0; i < n; i++ {
           if (maskApplied>>i)&1 == 1 { continue }
-          if rune(target[i]) == c {
-            maskApplied |= (1 << (n-i-1))
+          if rune(target[n-i-1]) == c {
+            maskApplied |= (1 << i)
             break
           }
         }
