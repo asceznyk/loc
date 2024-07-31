@@ -15,7 +15,6 @@ public:
     if(checkCounts(ssCount, s1Count)) return true;
     int p = s2[0];
     for(int i = 1; i <= n-w; i++) {
-      string ss = s2.substr(i, w);
       ssCount[p-97]--;
       ssCount[(int)s2[i+w-1]-97]++;
       if(checkCounts(ssCount, s1Count)) return true;
