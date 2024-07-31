@@ -1,9 +1,3 @@
-package main
-
-import (
-  "fmt"
-)
-
 func findAnagrams(s string, p string) []int {
   idxs := []int{}
   k, n := len(p), len(s)
@@ -21,14 +15,5 @@ func findAnagrams(s string, p string) []int {
     }
     if(isAnagram) { idxs = append(idxs, i-k+1) } 
   }
-  fmt.Println(idxs)
   return idxs
 }
-
-func main() {
-  findAnagrams("cbaebabacd", "abc")
-  findAnagrams("abab", "ab")
-  findAnagrams("aaaaaaaaaa", "aaaaaaaaaaaaa")
-}
-
-
