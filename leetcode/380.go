@@ -16,7 +16,6 @@ func (this *RandomizedSet) Insert(val int) bool {
   }
   this.elements[val] = len(this.keys)
   this.keys = append(this.keys, val)
-  fmt.Println(this.keys)
   return true
 }
 
@@ -31,7 +30,6 @@ func (this *RandomizedSet) Remove(val int) bool {
   this.elements[v] = i
   this.keys = this.keys[:n-1]
   delete(this.elements, val)
-  fmt.Println(this.keys, this.elements, v)
   return true
 }
 
