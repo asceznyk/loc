@@ -6,6 +6,7 @@ class Solution:
       left = dfs(node.left)
       right = dfs(node.right)
       key += f"left_{left}_" if left else ""
+      key += "__"
       key += f"right_{right}" if right else ""
       if key in visited:
         ans[key] = node
@@ -15,6 +16,5 @@ class Solution:
     visited = {}
     ans = {}
     dfs(root)
-    print(ans)
     return [n for _, n in ans.items()]
 
