@@ -14,7 +14,6 @@ func merge(nums1 []int, m int, nums2 []int, n int)  {
       i++
     }
     nums1 = reassign(nums1, res)
-    fmt.Println("nums1 ", nums1)
     return
   }
   for i < m && j < n {
@@ -37,6 +36,5 @@ func merge(nums1 []int, m int, nums2 []int, n int)  {
     j++
   }
   nums1 = reassign(nums1, res)
-  fmt.Println("nums1 ", nums1)
 }
 
