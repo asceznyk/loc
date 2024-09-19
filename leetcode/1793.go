@@ -22,6 +22,5 @@ func maximumScore(nums []int, k int) int {
     score = max(score, m*(r-l))
     r++
   }
-  fmt.Printf("score = %d\n", score)
   return score
 }
