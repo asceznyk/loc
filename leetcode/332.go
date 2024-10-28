@@ -7,44 +7,45 @@ import (
 
 var res = []string{}
 
-func dfs(
-  adjList map[string][]string, vedges map[string]bool,
-  curr string, par string,
-) {
-  vedges[par + "_" + curr] = true
-  if len(res) == 0 || curr != res[len(res)-1] {
-    res = append(res, curr)
+func backtrack(adjList map[string][]string, src string) {
+  neighbors, exists := adjList[src]
+  if !exists {
+    res = append(res, src)
+    return
   }
-  fmt.Println(par, curr)
-  for _, child := range adjList[curr] {
-    visited := vedges[curr + "_" + child]
-    if visited {
-      continue
-    }
-    dfs(adjList, vedges, child, curr)
-  } 
+  fmt.Println(src, neighbors)
+  for len(neighbors) > 0 {
+    dst := neighbors[0]
+    adjList[src] = adjList[src][1:]
+    backtrack(adjList, dst)
+    neighbors = adjList[src]
+  }
+  res = append(res, src)
 }
 
 func findItinerary(tickets [][]string) []string {
   adjList := make(map[string][]string)
-  vedges := make(map[string]bool)
   for i := range tickets {
     from, to := tickets[i][0], tickets[i][1]
     adjList[from] = append(adjList[from], to)
     sort.Strings(adjList[from])
-    vedges[from + "_" + to] = false 
   }
-  fmt.Println(adjList)
-  fmt.Println(vedges)
   res = []string{}
-  dfs(adjList, vedges, "JFK", "")
-  fmt.Println("res", res)
-  return res
+  backtrack(adjList, "JFK")
+  if len(res) == len(tickets)+1 {
+    for i, j := 0, len(res)-1; i < j; i, j = i+1, j-1 {
+      res[i], res[j] = res[j], res[i]
+    }
+    fmt.Println("res", res)
+    return res
+  }
+  return []string{}
 }
 
 func main() {
   findItinerary([][]string{{"MUC","LHR"},{"JFK","MUC"},{"SFO","SJC"},{"LHR","SFO"}})
   findItinerary([][]string{{"JFK","SFO"},{"JFK","ATL"},{"SFO","ATL"},{"ATL","JFK"},{"ATL","SFO"}})
   findItinerary([][]string{{"JFK","KUL"},{"JFK","NRT"},{"NRT","JFK"}})
+  findItinerary([][]string{{"EZE","AXA"},{"TIA","ANU"},{"ANU","JFK"},{"JFK","ANU"},{"ANU","EZE"},{"TIA","ANU"},{"AXA","TIA"},{"TIA","JFK"},{"ANU","TIA"},{"JFK","TIA"}})
 }
 
