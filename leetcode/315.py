@@ -8,6 +8,6 @@ class Solution:
       i = oset.bisect_left(x)
       res.append(i)
       oset.add(x)
-    return list(reversed(res))
+    return res[::-1]
 
     
