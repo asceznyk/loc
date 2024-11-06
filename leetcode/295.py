@@ -17,16 +17,14 @@ class MedianFinder:
 
   def addNum(self, num:int):
     self.n += 1
-    if len(self.maxH) <= 0:
+    if len(self.maxH) == 0:
       heappush(self.maxH, -num)
       return
     if -self.maxH[0] < num:
       heappush(self.minH, num)
     else:
       heappush(self.maxH, -num)
-    print("before balacing", self.minH, self.maxH)
     self.balanceHeaps()
-    print("after balacing", self.minH, self.maxH)
 
   def findMedian(self) -> float:
     if self.n % 2:
