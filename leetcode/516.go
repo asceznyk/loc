@@ -1,16 +1,15 @@
 func dfs(s string, i int, j int, dp [][]int) int {
-  if i > j { 
-    return 0
+  if i == j {
+    return 1
+  }
+  if i > j {
+    return 0 
   }
   if dp[i][j] != 0 {
     return dp[i][j]
   }
   if s[i] == s[j] {
-    x := 2
-    if (i == j) {
-      x = 1
-    }
-    dp[i][j] = x+dfs(s, i+1, j-1, dp)
+    dp[i][j] = 2+dfs(s, i+1, j-1, dp)
     return dp[i][j]
   }
   dp[i][j] = max(dfs(s, i, j-1, dp), dfs(s, i+1, j, dp))
@@ -24,7 +23,9 @@ func longestPalindromeSubseq(s string) int {
   for i := 0; i < n; i++ {
     dp[i] = make([]int, n)
   }
-  return dfs(s, 0, n-1, dp)
+  ans := dfs(s, 0, n-1, dp)
+  fmt.Println("ans", ans)
+  return ans
 }
 
 // Iterative DP
@@ -43,6 +44,8 @@ func longestPalindromeSubseq(s string) int {
       }
       dp[i][j] = max(dp[i+1][j], dp[i][j-1]) 
     }
-  } 
+  }
+  fmt.Println("ans", dp[0][n-1])
   return dp[0][n-1]
 }
+
