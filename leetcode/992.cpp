@@ -8,9 +8,7 @@ public:
       int x = nums[j];
       freq[x]++;
       while ((int)freq.size() > k) {
-        int p = nums[i];
-        i++;
-        freq[p]--;
+        int p = nums[i]; i++; freq[p]--;
         if (freq[p] == 0) freq.erase(p);
       }
       res += j-i+1;
