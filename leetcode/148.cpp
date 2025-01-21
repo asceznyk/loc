@@ -1,5 +1,3 @@
-#include "../utils.h"
-
 class Solution {
 public:
   ListNode* sortList(ListNode* head) {
