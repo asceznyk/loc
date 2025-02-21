@@ -5,8 +5,6 @@ class Solution:
     oset = SortedList([])
     ans = 0
     for x in nums:
-      l = len(oset)
-      i = oset.bisect_right(2*x)
-      ans += (l-i) if l >= i else 0
+      ans += (len(oset)-oset.bisect_right(2*x))
       oset.add(x)
     return ans
