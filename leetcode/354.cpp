@@ -22,8 +22,7 @@ class Solution {
     int n = envelopes.size();
     vector<int> heights(n);
     for (int i = 0; i < n; i++) heights[i] = envelopes[i][1];
-    int ans = lengthLIS(heights);
-    return ans;
+    return lengthLIS(heights);
   }
 };
 
