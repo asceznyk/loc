@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include <string>
 #include <cmath>
 #include <bits/stdc++.h>
@@ -7,15 +8,18 @@ using namespace std;
 
 template <typename T>
 void printVector(vector<T>& v) {
+  cout << "[" << " ";
   for(int i = 0; i < v.size(); i++)
     cout << v[i] << " ";
-  cout << '\n';
+  cout << "]" << '\n';
 }
 
 template <typename K, typename V>
 void printHashMap(map<K,V>& umap) {
+  cout << "{" << '\n';
   for(auto &it: umap)
-    cout << it.first << ": " << it.second << '\n';
+    cout << "  " << it.first << ": " << it.second << '\n';
+  cout << "}" << '\n';
 }
 
 struct TreeNode {
@@ -79,16 +83,24 @@ TreeNode* buildBinaryTree(vector<int>& arr, int arb) {
   return root;
 }
 
-vector<int> traverseBinaryTree(TreeNode* root) {
-  vector<int> visited;
-  vector<TreeNode*> vstack = {root};
+string traverseBinaryTree(TreeNode* root) {
+  string visited = "";
+  vector<pair<TreeNode*,int>> vstack = {{root, 0}};
   while (vstack.size() != 0) {
-    TreeNode* node = vstack.back();
+    pair<TreeNode*,int> p = vstack.back();
+    TreeNode* node = p.first;
+    int depth = p.second;
     vstack.pop_back();
     if (node == nullptr) continue;
-    visited.push_back(node->val);
-    vstack.push_back(node->right);
-    vstack.push_back(node->left);
+    string sdepth = "";
+    int d = 0;
+    while (d < depth) {
+      sdepth += "-";
+      d++;
+    }
+    visited += sdepth + to_string(node->val);
+    vstack.push_back({node->right, depth+1});
+    vstack.push_back({node->left, depth+1});
   }
   return visited;
 }
