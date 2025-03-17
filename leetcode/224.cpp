@@ -6,14 +6,10 @@ public:
     for (char c: s) {
       if (isdigit(c)) {
         operand = operand*10 + (c-'0');
-      } else if (c == '+') {
+      } else if (c == '+' || c == '-') {
         ans += sign*operand;
         operand = 0;
-        sign = 1;
-      } else if (c == '-') {
-        ans += sign*operand;
-        operand = 0; 
-        sign = -1;
+        sign = c == '+' ? 1 : -1;
       } else if (c == '(') {
         vstack.push_back(ans);
         vstack.push_back(sign);
