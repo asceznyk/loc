@@ -1,5 +1,3 @@
-#include "../utils.h"
-
 typedef long long ll;
 
 class Solution {
@@ -47,5 +45,4 @@ public:
     return ans;
   }
 };
-
 
