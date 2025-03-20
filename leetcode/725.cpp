@@ -25,7 +25,7 @@ public:
         curr = early;
       }
     } else {
-      x = (n/k)+1; i = 0;
+      x = (n/k)+1;
       bool isset = false;
       while (curr) {
         i++;
