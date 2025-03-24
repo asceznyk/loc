@@ -16,7 +16,7 @@ public:
         int w = grid[di][dj];
         if (dist[i][j]+w < dist[di][dj]) {
           dist[di][dj] = dist[i][j]+w;
-          if (w == 0) dq.push_front({di,dj});
+          if (!w) dq.push_front({di,dj});
           else dq.push_back({di,dj});
         }
       }
