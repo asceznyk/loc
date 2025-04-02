@@ -25,7 +25,7 @@ class Solution:
         return dp[i][p]
       dp[i][p] = min(1+dfs(i+1, i+1), dfs(i+1, p))
       return dp[i][p]
-    ans = dfs(0, 0)
-    return ans
+    return dfs(0, 0)
+
 
 
