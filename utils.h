@@ -8,18 +8,24 @@ using namespace std;
 
 template <typename T>
 void printVector(vector<T>& v) {
-  cout << "[" << " ";
-  for(int i = 0; i < v.size(); i++)
-    cout << v[i] << " ";
-  cout << "]" << '\n';
+  cout << "[";
+  int n = v.size();
+  for(int i = 0; i < n; i++) {
+    if (i == n-1) {
+      cout << v[i];
+      continue;
+    }
+    cout << v[i] << ",";
+  }
+  cout << "]" << "\n";
 }
 
 template <typename K, typename V>
 void printHashMap(map<K,V>& umap) {
-  cout << "{" << '\n';
+  cout << "{";
   for(auto &it: umap)
-    cout << "  " << it.first << ": " << it.second << '\n';
-  cout << "}" << '\n';
+    cout << "  " << it.first << ": " << it.second << ", ";
+  cout << "}" << "\n";
 }
 
 struct TreeNode {
