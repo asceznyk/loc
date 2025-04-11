@@ -10,7 +10,6 @@ public:
     sort(pairWeights.begin(), pairWeights.end());
     ll diff = 0;
     for (int i = 0; i < k-1; i++) diff += (pairWeights[n-i-2] - pairWeights[i]);
-    printf("diff = %lld\n", diff);
     return diff;
   }
 };
