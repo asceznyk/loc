@@ -20,7 +20,7 @@ public:
     for (int i = 0; i < k; i++) {
       int eSpeed = employees[i][0], eEff = employees[i][1];
       pq.push(-eSpeed);
-      ssum += (ll)eSpeed;
+      ssum += eSpeed;
       score = eEff*ssum;
       ans = max(ans, score);
     }
@@ -30,7 +30,7 @@ public:
       if(cSpeed < eSpeed) {
         pq.pop();
         pq.push(-eSpeed);
-        ssum += (ll)(eSpeed - cSpeed);
+        ssum += (eSpeed - cSpeed);
       }
       score = eEff*ssum;
       ans = max(ans, score); 
