@@ -1,5 +1,3 @@
-from utils import *
-
 def buildBinaryTree(nums:List[Union[int,None]]) -> Union[TreeNode,None]:
   n = len(nums)
   if n <= 0: return None
