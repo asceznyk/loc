@@ -31,7 +31,6 @@ public:
     return arr.front();  
   }
   int Rear() {
-    printVector(arr);
     if (isEmpty()) return d;
     return arr[j-1];  
   }
