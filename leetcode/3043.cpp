@@ -1,9 +1,7 @@
 class TrieNode {
 public:
   TrieNode* child[10];
-  bool isNum;
   TrieNode() {
-    isNum = false;
     for (auto &a : child) a = nullptr;
   }
 };
@@ -21,7 +19,6 @@ public:
       if (!p->child[i]) p->child[i] = new TrieNode();
       p = p->child[i];
     }
-    p->isNum = true;
   }
   int commonPref(string s) {
     TrieNode* p = root;
@@ -39,8 +36,6 @@ public:
 class Solution {
 public:
   int longestCommonPrefix(vector<int>& arr1, vector<int>& arr2) {
-    printf("arr1 = "); printVector(arr1);
-    printf("arr2 = "); printVector(arr2);
     int ans = 0;
     int n = arr1.size(), m = arr2.size();
     Trie* trie = new Trie();
@@ -52,7 +47,6 @@ public:
       string curr = to_string(arr2[j]);
       ans = max(ans, trie->commonPref(curr));
     }
-    printf("ans = %d\n", ans);
     return ans;    
   }
 };
