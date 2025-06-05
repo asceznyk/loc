@@ -1,5 +1,3 @@
-#include "../utils.h"
-
 class Solution {
 public:
   int dfs(int i, int j, string& s, vector<vector<int>>& mem) {
@@ -31,14 +29,4 @@ public:
   }
 };
 
-int main() {
-  Solution sol;
-  sol.strangePrinter("aaabbb");
-  sol.strangePrinter("aba");
-  sol.strangePrinter("dabcabcd");
-  sol.strangePrinter("abcdefghijaa");
-  sol.strangePrinter("zscjivbtzmbzxez");
-  sol.strangePrinter("zscjiv");
-  sol.strangePrinter("qqcdsfksjq");
-  return 0;
-}
+
