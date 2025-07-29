@@ -7,4 +7,4 @@ class Solution:
       end = dur + (prev if prev > arrival else arrival)
       ans += (end - arrival)
       prev = end
-    return 0.0
+    return (ans/n)
