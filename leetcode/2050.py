@@ -14,9 +14,8 @@ class Solution:
       indegree[b-1] += 1
       adj[a-1].append(b-1)
     nodes = []
-    roots = [i for i, v in enumerate(indegree) if v == 0]
     mem = [-1 for _ in range(n+1)]
     ans = 0
-    for root in roots: ans = max(ans, dfs(root))
+    for root in [i for i, v in enumerate(indegree) if v == 0]: ans = max(ans, dfs(root))
     return ans
 
