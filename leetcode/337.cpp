@@ -25,9 +25,7 @@ public:
   }
   int rob(TreeNode* root) {
     unordered_map<TreeNode*, int, PointerHash> dp; 
-    int ans = dfs(root, dp);
-    printf("ans = %d\n", ans);
-    return ans;
+    return dfs(root, dp);
   }
 };
 
