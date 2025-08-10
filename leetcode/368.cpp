@@ -10,11 +10,9 @@ public:
     for (int i = 0; i < n; i++) {
       length[i] = 1;
       for (int j = 0; j < i; j++) {
-        if (nums[i] % nums[j] == 0 || nums[j] % nums[i] == 0) {
-          if (length[j]+1 > length[i]) {
-            length[i] = length[j]+1;
-            parent[i] = j;
-          }
+        if (nums[i] % nums[j] == 0 && length[j]+1 > length[i]) {
+          length[i] = length[j]+1;
+          parent[i] = j;
         } 
       }
       if(length[i] > maxLen) {
