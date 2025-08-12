@@ -17,7 +17,7 @@ public:
       tmax = neededTime[i];
       prev = curr;
     }
-    ans += (tsum - tmax)
+    ans += (tsum - tmax);
     return ans;
   }
 };
