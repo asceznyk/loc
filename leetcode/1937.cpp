@@ -19,7 +19,6 @@ public:
         nextRow[i] = max(leftMax[i], rightMax[i]) + points[x][i]*1LL;
       currRow = nextRow;
     }
-    printf("currRow = "); printVector(currRow);
     return *max_element(currRow.begin(), currRow.end());
   }
 };
