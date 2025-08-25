@@ -1,5 +1,3 @@
-#include "../utils.h"
-
 class Solution {
 public:
   int x = 0;
