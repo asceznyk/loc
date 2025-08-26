@@ -1,7 +1,6 @@
 class Solution:
   def findAllPeople(self, n:int, meetings:List[List[int]], firstPerson:int) -> List[int]:
     adj = [[] for _ in range(n)]
-    meetings = sorted(meetings, key=lambda x: x[2])
     for a, b, t in meetings:
       adj[a].append((b,t))
       adj[b].append((a,t))
