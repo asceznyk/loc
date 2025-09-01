@@ -1,20 +1,18 @@
-typedef long long int lli;
-
 class Solution {
 public:
   int m = 0, n = 0, g = 0;
   const int MOD = 1e9+7;
-  lli dfs(
+  int dfs(
     int k, int i,
-    vector<vector<int>>& freq, string target,
+    vector<vector<int>>& freq, string& target,
     vector<vector<int>>& mem
   ) {
     if (i == g) return 1;
     if (k >= n || n-k < g-i) return 0;
     if (mem[k][i] != -1) return mem[k][i];
-    lli ways = (freq[target[i]-'a'][k] * dfs(k+1, i+1, freq, target, mem)) % MOD;
-    ways += dfs(k+1, i, freq, target, mem);
-    ways %= MOD;
+    int cnt = freq[target[i]-'a'][k];
+    int ways = dfs(k+1, i, freq, target, mem);
+    if (cnt > 0) ways += (1LL * cnt * dfs(k+1, i+1, freq, target, mem)) % MOD;
     return mem[k][i] = ways % MOD;
   }
   int numWays(vector<string>& words, string target) {
