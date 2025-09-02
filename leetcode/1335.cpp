@@ -12,7 +12,7 @@ public:
     int res = INF;
     int diff = jobDifficulty[i];
     for (int j = i+1; j < (n-d)+1; j++) {
-      res = min(diff+dfs(j, d-1, jobDifficulty, mem), res);
+      res = min(diff + dfs(j, d-1, jobDifficulty, mem), res);
       diff = max(diff, jobDifficulty[j]);
     }
     return mem[i][d] = res;
