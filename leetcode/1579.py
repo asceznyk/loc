@@ -48,5 +48,5 @@ class Solution:
       return -1
     ans = 0
     c = sum(self.compsC) - self.idx
-    return e - (n-1) if c >= n-1 else e-(2*n-c-2)
+    return e - (n-1) if c >= n-1 else e - (2*n-c-2)
 
