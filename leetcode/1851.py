@@ -6,6 +6,7 @@ class Solution:
     inter = [(-1, -1) for _ in range(len(queries))]
     i = 0
     for k, (q, j) in enumerate(queries):
+      while minHeap and q > minHeap[0][2]: heappop(minHeap)
       while i < len(intervals) and q >= intervals[i][0]:
         [start, end] = intervals[i]
         if start <= q <= end:
