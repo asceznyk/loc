@@ -3,10 +3,10 @@ public:
   int n = 0;
   int tallestBillboard(vector<int>& rods) {
     n = rods.size();
-    unordered_map<int,int> dp;
+    map<int,int> dp;
     dp[0] = 0;
     for (int r: rods) {
-      unordered_map<int,int> newDp(dp);
+      map<int,int> newDp(dp);
       for (auto entry: dp) {
         int d = entry.first;
         int t = entry.second;
