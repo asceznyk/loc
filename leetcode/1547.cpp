@@ -9,7 +9,8 @@ public:
     for (int k = i+1; k <= j-1; k++) {
       res = min(
         res,
-        (newCuts[j]-newCuts[i]) + dfs(i,k,newCuts, dp) + dfs(k,j,newCuts, dp) 
+        (newCuts[j]-newCuts[i]) + \
+        dfs(i, k, newCuts, dp) + dfs(k, j, newCuts, dp) 
       );
     }
     return dp[i][j] = res;
