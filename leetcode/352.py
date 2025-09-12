@@ -13,8 +13,7 @@ class SummaryRanges:
       if x != p+1:
         res.append([x,x])
         i += 1
-      else:
-        res[i][1] = x
+      else: res[i][1] = x
       p = x
     return res
 
