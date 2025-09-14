@@ -11,8 +11,10 @@ public:
     }
     return a;
   }
-  bool areAllFixable(ll time, vector<int>& ranks, int cars, vector<ll>& allTimes) {
-    printf("time = %lld, cars = %d\n", time, cars);
+  bool areAllFixable(
+    ll time,
+    vector<int>& ranks, int cars, vector<ll>& allTimes
+  ) {
     for (int i = 0; i < ranks.size(); i++) {
       cars -= numFixable(ranks[i], time, allTimes);
       if (cars <= 0) return true;

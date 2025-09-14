@@ -1,7 +1,6 @@
 class Solution:
   def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
     def isSubset(uFreq:Dict) -> bool:
-      print(f"sFreq = {sFreq}, uFreq = {uFreq}")
       for k in sFreq:
         if not uFreq.get(k,0) or sFreq[k] > uFreq[k]:
           return False

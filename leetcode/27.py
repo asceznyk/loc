@@ -1,6 +1,5 @@
 class Solution:
   def removeElement(self, nums:List[int], val:int) -> int:
-    print(nums, val)
     n = len(nums)
     nums.sort()
     if val > 50:

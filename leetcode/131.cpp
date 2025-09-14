@@ -7,7 +7,10 @@ private:
     }
     return true;
   }
-  void  dfs(vector<vector<string>>& res, vector<string>& sub, int start, string& s) {
+  void  dfs(
+    vector<vector<string>>& res, vector<string>& sub,
+    int start, string& s
+  ) {
     if (start >= s.size()) {
       res.push_back(sub);
       return;
@@ -25,7 +28,6 @@ public:
     vector<vector<string>> res;
     vector<string> sub = {};
     dfs(res, sub, 0, s);
-    for(auto v: res) printVector(v);
     return res;
   }
 };

@@ -14,6 +14,5 @@ func minInsertions(s string) int {
       dp[i][j] = max(dp[i+1][j], dp[i][j-1])
     }
   }
-  fmt.Println("ans", n-dp[0][n-1])
   return n-dp[0][n-1]
 }

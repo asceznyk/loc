@@ -30,7 +30,6 @@ func minReorder(n int, connections [][]int) int {
   visited := make([]bool, n)
   count = 0
   dfs(adjList, path, 0, -1, visited)
-  fmt.Println("count =", count)
   return count
 }
 

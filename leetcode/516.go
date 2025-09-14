@@ -24,7 +24,6 @@ func longestPalindromeSubseq(s string) int {
     dp[i] = make([]int, n)
   }
   ans := dfs(s, 0, n-1, dp)
-  fmt.Println("ans", ans)
   return ans
 }
 
@@ -45,7 +44,6 @@ func longestPalindromeSubseq(s string) int {
       dp[i][j] = max(dp[i+1][j], dp[i][j-1]) 
     }
   }
-  fmt.Println("ans", dp[0][n-1])
   return dp[0][n-1]
 }
 

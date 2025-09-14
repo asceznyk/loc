@@ -1,7 +1,3 @@
-package main
-
-import "fmt"
-
 func mergeAlternately(word1 string, word2 string) string {
   n, m := len(word1), len(word2)
   p1, p2, x := 0, 0, 0
@@ -20,7 +16,3 @@ func mergeAlternately(word1 string, word2 string) string {
   return ans
 }
 
-func main() {
-  mergeAlternately("abcd", "efghij")
-  mergeAlternately("efghij", "abcd")
-}

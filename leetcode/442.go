@@ -6,6 +6,5 @@ func findDuplicates(nums []int) []int {
     if v == 1 { continue }
     ans = append(ans, k)
   } 
-  fmt.Println(ans)
   return ans
 }

@@ -8,9 +8,9 @@ class LRUCache:
     del self.uMap[key]
     self.uMap[key] = value
     return self.uMap[key]
-  def put(self, key:int, value:int) -> None:
+  def put(self, key:int, value:int):
     if self.uMap.get(key) is None and len(self.uMap) == self.capacity:
-      old = list(self.uMap.keys())[0]
+      old = next(iter(self.uMap))
       del self.uMap[old]
     if self.uMap.get(key):
       del self.uMap[key]

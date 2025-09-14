@@ -1,7 +1,6 @@
 class Solution {
 public:
   vector<int> findErrorNums(vector<int>& nums) {
-    printVector(nums);
     int n = nums.size(), rep = 0;
     vector<int> hmap(n+1);
     for (int i = 0; i < n; i++) {

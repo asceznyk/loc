@@ -14,11 +14,11 @@ class Solution {
     return ans.size();
   }
   int maxEnvelopes(vector<vector<int>>& envelopes) {
-    sort(envelopes.begin(), envelopes.end(), [](vector<int>& a, vector<int>& b) {
+    sort(envelopes.begin(), envelopes.end(),
+    [](vector<int>& a, vector<int>& b) {
       if (a[0] != b[0]) return a[0] < b[0];
       return a[1] > b[1];
     });
-    for (auto& x: envelopes) printVector(x);
     int n = envelopes.size();
     vector<int> heights(n);
     for (int i = 0; i < n; i++) heights[i] = envelopes[i][1];

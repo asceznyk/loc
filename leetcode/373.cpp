@@ -1,11 +1,14 @@
 class Solution {
 public:
-  vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
+  vector<vector<int>> kSmallestPairs(
+    vector<int>& nums1, vector<int>& nums2, int k
+  ) {
     int m = nums1.size(),  n = nums2.size();
     auto cmpMax = [](const pair<int,int>& a, const pair<int,int>& b) {
       return (a.first + a.second) < (b.first + b.second);
     };
-    priority_queue<pair<int,int>, vector<pair<int,int>>, decltype(cmpMax)> pq(cmpMax);
+    priority_queue<pair<int,int>, vector<pair<int,int>>, decltype(cmpMax)> \
+      pq(cmpMax);
     int i = 0, j = 0;
     bool stop = false;
     while (i < m) {
@@ -40,7 +43,6 @@ public:
       res.push_back(t);
       pq.pop();
     }
-    for (auto& v: res) printVector(v);
     return res;
   }
 };

@@ -4,7 +4,6 @@ class Solution {
 public:
   int m = 0, n = 0;
   ll dfs(int mask, vector<int>& skillBits, vector<ll>& mem) {
-    cout << bitset<16>(mask) << " " << "\n";
     if (mask == 0) return 0;
     if (mem[mask] != -1) return mem[mask];
     for (int i = 0; i < m; i++) {
