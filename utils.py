@@ -1,7 +1,8 @@
+import bisect
 import heapq
-from heapq import heappop, heappush
-
+from heapq import heapify, heappop, heappush
 from collections import deque
+from functools import cache
 from typing import List, Dict, Optional, Union, Tuple
 
 class TreeNode:
@@ -31,7 +32,7 @@ def catLL(head:Optional[ListNode]):
     head = head.next
   print(f"{s}None")
 
-def buildBinaryTree(nums:List[Union[int,None]]) -> Union[TreeNode,None]:
+def buildBinaryTree(nums:List[Optional[int]]) -> Optional[TreeNode]:
   n = len(nums)
   if n <= 0: return None
   i = 0
@@ -50,7 +51,7 @@ def buildBinaryTree(nums:List[Union[int,None]]) -> Union[TreeNode,None]:
     i += 1
   return root
 
-def traverseBinaryTree(root:TreeNode) -> List[int]:
+def traverseBinaryTree(root:Optional[TreeNode]) -> List[int]:
   visited = []
   stack = [root]
   while stack:
@@ -61,8 +62,15 @@ def traverseBinaryTree(root:TreeNode) -> List[int]:
     stack.append(node.left)
   return visited
 
-def callObjMethods(obj:object, funcs:List[str], largs:List[List[Union[str,int]]]):
+def callObjMethods(
+  obj:object,
+  funcs:List[str], largs:List[List[Union[str,int]]]
+):
   ins = obj(*largs[0])
-  callees = {methodName:getattr(ins, methodName) for methodName in set(funcs[1:])}
-  for func, args in zip(funcs[1:], largs[1:]): print(func, args, callees[func](*args))
+  callees = {
+    methodName:getattr(ins, methodName) for methodName in set(funcs[1:])
+  }
+  for func, args in zip(funcs[1:], largs[1:]):
+    print(func, args, callees[func](*args))
+
 
