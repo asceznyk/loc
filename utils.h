@@ -1,8 +1,8 @@
-#include <iostream>
-#include <cassert>
 #include <string>
-#include <cmath>
-#include <bits/stdc++.h>
+#include <vector>
+#include <map>
+#include <deque>
+#include <iostream>
 
 using namespace std;
 
@@ -34,7 +34,8 @@ struct TreeNode {
   TreeNode *right;
   TreeNode() : val(0), left(nullptr), right(nullptr) {}
   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-  TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  TreeNode(int x, TreeNode *left, TreeNode *right) :\
+    val(x), left(left), right(right) {}
 };
 
 struct ListNode {
