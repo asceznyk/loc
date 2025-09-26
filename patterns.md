@@ -2,7 +2,7 @@
 List of all patterns and subpatterns in algorithms. It lists the patterns of questions and constraints, and the idea and transition.
 
 
-## DP
+## Dynamic Programming
 
 - 0-1 Knapsack or Pick-skip: Generally asked in subset / subsequence type problems where a subset is optimal. Constraints are usually `~O(n)`. The idea is that you have 2 choices, Either pick an item or skip it.
 
